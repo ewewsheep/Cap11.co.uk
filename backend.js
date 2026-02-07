@@ -1,5 +1,5 @@
 const express = require("express")
-const f= require("fs");
+const f= require("fs").promises;
 const app = express()
 const path = require("path");
 const cors = require("cors");
@@ -83,6 +83,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
