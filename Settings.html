@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="scripts.JS" defer></script>
+</head>
+
+<body style="display: flex;flex-direction: column;">
+    <h3>(you must reset to see changes)</h3>
+    <br>
+    <br>
+    <input type="text" id="username" style="width: 15em;height: 3em;font-size: 60px;" placeholder=":Username:"/>
+    <button id="usernameb" style="width: 37.75em;font-size: 24px;" onmousedown="ChangeUsername(document.getElementById('username').value)">username</button>
+    <input type="text" id="pfp" style="width: 15em;height: 3em;font-size: 60px;" placeholder="pfp"/>
+    <button id="pfpb" style="width: 37.75em;font-size: 24px;" onmousedown="ChangePfp(document.getElementById('pfp').value)">pfp</button>
+    <input type="text" id="password" style="width: 15em;height: 3em;font-size: 60px;" placeholder="password"/>
+    <button id="passwordb" style="width: 37.75em;font-size: 24px;" onmousedown="ChangePassword(document.getElementById('password').value)">password</button>
+
+    <script>
+
+        function Relogusername() {
+            const readycookie = document.cookie.replace(GetInfo("username"),document.getElementById("username").value).replace("User=","")
+            console.log(readycookie)
+            document.cookie = "User=" + readycookie + ";max-age=28000;path=/";
+            console.log("CookieRequestReset")
+        }
+
+        async function ChangeUsername(data) {
+            console.log("ligma")
+            await fetch("http://localhost:3000/NAME?data=" + data + "&name=" + GetInfo("username"));
+            Relogusername();
+            console.log("notcontinuityerror")  
+        }
+
+        function Relogpassword() {
+            const readycookie = document.cookie.replace(GetInfo("password"),document.getElementById("password").value).replace("User=","")
+            console.log(readycookie)
+            document.cookie = "User=" + readycookie + ";max-age=28000;path=/";
+            console.log("CookieRequestReset")
+        }
+
+        async function ChangePassword(data) {
+            console.log("ligma")
+            await fetch("http://localhost:3000/PASS?data=" + data + "&name=" + GetInfo("username"));
+            Relogpassword();
+            console.log("notcontinuityerror")  
+        }
+
+        function Relogpfp() {
+            const readycookie = document.cookie.replace(GetInfo("pfp"),document.getElementById("pfp").value).replace("User=","")
+            console.log(readycookie)
+            document.cookie = "User=" + readycookie + ";max-age=28000;path=/";
+            console.log("CookieRequestReset")
+        }
+
+        async function ChangePfp(data) {
+            console.log("ligma")
+            await fetch("http://localhost:3000/PFP?data=" + data + "&name=" + GetInfo("username"));
+            Relogusername();
+            console.log("notcontinuityerror")  
+        }
+
+
+    setTimeout(() => {
+
+        //----------------------------------------------------------------------//
+
+        if(GetInfo("username") === null){window.location = "Home.html";}
+
+        if(GetInfo("username") == null){
+            document.getElementById("username").placeholder = "NOT A USER!";document.getElementById("pfp").placeholder = "NOT A USER!"
+        }else{ document.getElementById("username").placeholder = GetInfo("username");document.getElementById("pfp").placeholder = GetInfo("pfp");document.getElementById("password").placeholder = GetInfo("password")}   
+    },1000)
+    </script>
+</body>

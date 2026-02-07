@@ -1,0 +1,41 @@
+[
+    {
+        "username": "ewewsheep",
+        "password": "ALOBOI",
+        "banned": false,
+        "pfp": "https://th.bing.com/th/id/OIP.M1c4K5PE1yJ1RAvxeNgqoAHaJ3",
+        "rank":"Admin",
+        "rankn": 12,
+        "id": 1
+    },
+
+    {
+        "username": "Luca Smith",
+        "password": "Cheesy-Dibbles",
+        "banned": false,
+        "pfp": "https://th.bing.com/th/id/OIP.8gh4DoFLcB6FCowuqEXVgQHaHa",
+        "rank":"Admin",
+        "rankn": 12,
+        "id": 2
+    },
+
+    {
+        "username": "Kaneo",
+        "password": "YodaTickles",
+        "banned": false,
+        "pfp": "https://tse3.mm.bing.net/th/id/OIP.hpNlM2Cu-ULEO0TsXeGZWgHaHa",
+        "rank":"Admin",
+        "rankn": 12,
+        "id": 3
+    },
+
+    {
+        "username": "StuTheGreat",
+        "password": "StinkyFeet",
+        "banned": false,
+        "pfp": "https://logos-world.net/wp-content/uploads/2021/11/UNC-Symbol.png",
+        "rank":"Admin",
+        "rankn": 12,
+        "id": 4
+    }
+]

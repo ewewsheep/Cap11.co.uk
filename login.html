@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<head>
+
+</head>
+
+
+<body style="justify-content: center;display: flex;height: 100%;">
+    <div style="position:relative;top: 7em;display: flex;flex-direction: column;">
+        <h2>Password</h2>
+        <input type="text" id="Password" style="width: 15em;height: 3em;font-size: 60px;"/>
+        <br>
+        <span id="decline" style="color: red;opacity: 0;">INCORRECT CREDENTIALS</span>
+        <span id="accept" style="color: green;opacity: 0;">Correct credentials!</span>
+        <br>
+        <h2>Confirm</h2>
+        <button onmousedown="Login()" style="width: 5em;">Confirm</button>
+    </div>
+
+
+
+
+    <script>
+
+        var found = false
+
+        function Login() {   
+            fetch('Data.json')
+                .then(response => response.json())
+                .then(data => {
+                data.forEach(item => {
+                    if (item.password === document.getElementById("Password").value){
+                        document.cookie = "User=" + (JSON.stringify(item)) + ";max-age=28000;path=/"
+                        found = true
+                    }
+                
+                });
+
+                if(found === false) {
+                    document.getElementById('decline').style.opacity = 1}
+                else{
+                    document.getElementById('decline').style.opacity = 0
+            }
+            });
+
+            if(found === false) {
+                document.getElementById('decline').style.opacity = 1
+                document.getElementById('accept').style.opacity = 0}
+            else{
+                document.getElementById('decline').style.opacity = 0
+                document.getElementById('accept').style.opacity = 1
+                window.location.href = '/Home.html'
+            }
+        }
+    </script>
+</body>
