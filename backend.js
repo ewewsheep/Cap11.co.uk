@@ -4,7 +4,6 @@ const app = express()
 const path = require("path");
 const cors = require("cors");
 
-
 app.use(cors()); // allow all origins (quick fix)
 
 app.get("/Data.json", (req, res) => {
@@ -78,6 +77,7 @@ app.get("/PFP", (req, res) => {
 app.listen(3000,() => {
     console.log("EXPRESS STARTED ON 3000");
 })
+
 
 
 
