@@ -19,9 +19,9 @@ app.use(express.static("public"));
 
 app.get("/NAME", (req, res) => {
     async function play(){
-        var B = await fetch("DATA_PATH")
+        var B = await fetch(DATA_PATH)
         var C = await B.json()
-        var D = await fetch("DATA_PATH")
+        var D = await fetch(DATA_PATH)
         var A = await D.text()
 
         C.forEach(z => {
@@ -30,7 +30,7 @@ app.get("/NAME", (req, res) => {
                 console.log("IF HAS WORKED SEE LOG BELOW")
             }
         });
-        f.writeFileSync("Data.json",A)
+        f.writeFileSync(DATA_PATH,A)
         console.log(A)
     } 
     play()
@@ -39,9 +39,9 @@ app.get("/NAME", (req, res) => {
 
 app.get("/PASS", (req, res) => {
     async function play(){
-        var B = await fetch("DATA_PATH")
+        var B = await fetch(DATA_PATH)
         var C = await B.json()
-        var D = await fetch("DATA_PATH")
+        var D = await fetch(DATA_PATH)
         var A = await D.text()
 
         C.forEach(z => {
@@ -50,7 +50,7 @@ app.get("/PASS", (req, res) => {
                 console.log("IF HAS WORKED SEE LOG BELOW")
             }
         });
-        f.writeFileSync("Data.json",A)
+        f.writeFileSync(DATA_PATH,A)
         console.log(A)
     } 
     play()
@@ -59,9 +59,9 @@ app.get("/PASS", (req, res) => {
 
 app.get("/PFP", (req, res) => {
     async function play(){
-        var B = await fetch("DATA_PATH")
+        var B = await fetch(DATA_PATH)
         var C = await B.json()
-        var D = await fetch("DATA_PATH")
+        var D = await fetch(DATA_PATH)
         var A = await D.text()
 
         C.forEach(z => {
@@ -70,7 +70,7 @@ app.get("/PFP", (req, res) => {
                 console.log("IF HAS WORKED SEE LOG BELOW")
             }
         });
-        f.writeFileSync("Data.json",A)
+        f.writeFileSync(DATA_PATH,A)
         console.log(A)
     } 
     play()
@@ -83,6 +83,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
