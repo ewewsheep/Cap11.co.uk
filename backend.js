@@ -21,7 +21,7 @@ app.use(express.static("public"));
 app.get("/NAME", (req, res) => {
     async function play(){
         var B = await f.readFile(DATA_PATH, "utf8")
-        var C = await JSON.parse(B)
+        var C = JSON.parse(B)
         var A = await f.readFile(DATA_PATH, "utf8")
 
         C.forEach(z => {
@@ -40,7 +40,7 @@ app.get("/NAME", (req, res) => {
 app.get("/PASS", (req, res) => {
     async function play(){
         var B = await f.readFile(DATA_PATH, "utf8")
-        var C = await JSON.parse(B)
+        var C = JSON.parse(B)
         var A = await f.readFile(DATA_PATH, "utf8")
 
         C.forEach(z => {
@@ -59,7 +59,7 @@ app.get("/PASS", (req, res) => {
 app.get("/PFP", (req, res) => {
     async function play(){
         var B = await f.readFile(DATA_PATH, "utf8")
-        var C = await JSON.parse(B)
+        var C = JSON.parse(B)
         var A = await f.readFile(DATA_PATH, "utf8")
 
         C.forEach(z => {
@@ -81,6 +81,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
