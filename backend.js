@@ -6,6 +6,8 @@ const cors = require("cors");
 
 app.use(cors()); // allow all origins (quick fix)
 
+const DATA_PATH = path.join(__dirname, "Data.json");
+
 app.get("/Data.json", (req, res) => {
   res.sendFile(path.join(__dirname, "Data.json"));
 });
@@ -15,9 +17,9 @@ app.use(express.static("public"));
 
 app.get("/NAME", (req, res) => {
     async function play(){
-        var B = await fetch("https://cap11-co-uk.onrender.com/Data.json")
+        var B = await fetch("DATA_PATH")
         var C = await B.json()
-        var D = await fetch("https://cap11-co-uk.onrender.com/Data.json")
+        var D = await fetch("DATA_PATH")
         var A = await D.text()
 
         C.forEach(z => {
@@ -35,9 +37,9 @@ app.get("/NAME", (req, res) => {
 
 app.get("/PASS", (req, res) => {
     async function play(){
-        var B = await fetch("https://cap11-co-uk.onrender.com/Data.json")
+        var B = await fetch("DATA_PATH")
         var C = await B.json()
-        var D = await fetch("https://cap11-co-uk.onrender.com/Data.json")
+        var D = await fetch("DATA_PATH")
         var A = await D.text()
 
         C.forEach(z => {
@@ -55,9 +57,9 @@ app.get("/PASS", (req, res) => {
 
 app.get("/PFP", (req, res) => {
     async function play(){
-        var B = await fetch("https://cap11-co-uk.onrender.com/Data.json")
+        var B = await fetch("DATA_PATH")
         var C = await B.json()
-        var D = await fetch("https://cap11-co-uk.onrender.com/Data.json")
+        var D = await fetch("DATA_PATH")
         var A = await D.text()
 
         C.forEach(z => {
@@ -79,6 +81,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
