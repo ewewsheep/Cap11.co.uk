@@ -6,6 +6,10 @@ const cors = require("cors");
 
 app.use(cors()); // allow all origins (quick fix)
 
+app.get("/Data.json", (req, res) => {
+  res.sendFile(path.join(__dirname, "Data.json"));
+});
+
 
 app.use(express.static("public"));
 
@@ -73,5 +77,6 @@ app.get("/PFP", (req, res) => {
 app.listen(3000,() => {
     console.log("EXPRESS STARTED ON 3000");
 })
+
 
 
