@@ -1,0 +1,17 @@
+{
+  "name": "cap11-website",
+  "version": "1.0.0",
+  "description": "My Cap11 website with Node backend and public front-end",
+  "main": "backend.js",
+  "scripts": {
+    "start": "node backend.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": "22.x"
+  },
+  "author": "YourName",
+  "license": "MIT"
+}
