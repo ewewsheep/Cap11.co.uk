@@ -15,9 +15,9 @@ app.use(express.static("public"));
 
 app.get("/NAME", (req, res) => {
     async function play(){
-        var B = await fetch("http://localhost:3000/Data.json")
+        var B = await fetch("https://cap11-co-uk.onrender.com/Data.json")
         var C = await B.json()
-        var D = await fetch("http://localhost:3000/Data.json")
+        var D = await fetch("https://cap11-co-uk.onrender.com/Data.json")
         var A = await D.text()
 
         C.forEach(z => {
@@ -35,9 +35,9 @@ app.get("/NAME", (req, res) => {
 
 app.get("/PASS", (req, res) => {
     async function play(){
-        var B = await fetch("http://localhost:3000/Data.json")
+        var B = await fetch("https://cap11-co-uk.onrender.com/Data.json")
         var C = await B.json()
-        var D = await fetch("http://localhost:3000/Data.json")
+        var D = await fetch("https://cap11-co-uk.onrender.com/Data.json")
         var A = await D.text()
 
         C.forEach(z => {
@@ -55,9 +55,9 @@ app.get("/PASS", (req, res) => {
 
 app.get("/PFP", (req, res) => {
     async function play(){
-        var B = await fetch("http://localhost:3000/Data.json")
+        var B = await fetch("https://cap11-co-uk.onrender.com/Data.json")
         var C = await B.json()
-        var D = await fetch("http://localhost:3000/Data.json")
+        var D = await fetch("https://cap11-co-uk.onrender.com/Data.json")
         var A = await D.text()
 
         C.forEach(z => {
@@ -77,6 +77,7 @@ app.get("/PFP", (req, res) => {
 app.listen(3000,() => {
     console.log("EXPRESS STARTED ON 3000");
 })
+
 
 
 
