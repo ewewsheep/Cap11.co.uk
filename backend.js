@@ -2,7 +2,7 @@ const express = require("express")
 const f= require("fs");
 const app = express()
 
-app.use(express.static("/public"));
+app.use(express.static("public"));
 
 app.get("/NAME", (req, res) => {
     async function play(){
@@ -68,3 +68,4 @@ app.get("/PFP", (req, res) => {
 app.listen(3000,() => {
     console.log("EXPRESS STARTED ON 3000");
 })
+
