@@ -20,10 +20,9 @@ app.use(express.static("public"));
 
 app.get("/NAME", (req, res) => {
     async function play(){
-        var B = await f.readFile(DATA_PATH)
+        var B = await f.readFile(DATA_PATH, "utf8")
         var C = await B.json()
-        var D = await f.readFile(DATA_PATH)
-        var A = await D.text()
+        var A = await f.readFile(DATA_PATH, "utf8")
 
         C.forEach(z => {
             if(z.username === req.query.name){
@@ -40,10 +39,9 @@ app.get("/NAME", (req, res) => {
 
 app.get("/PASS", (req, res) => {
     async function play(){
-        var B = await f.readFile(DATA_PATH)
+        var B = await f.readFile(DATA_PATH, "utf8")
         var C = await B.json()
-        var D = await f.readFile(DATA_PATH)
-        var A = await D.text()
+        var A = await f.readFile(DATA_PATH, "utf8")
 
         C.forEach(z => {
             if(z.username === req.query.name){
@@ -60,10 +58,9 @@ app.get("/PASS", (req, res) => {
 
 app.get("/PFP", (req, res) => {
     async function play(){
-        var B = await f.readFile(DATA_PATH)
+        var B = await f.readFile(DATA_PATH, "utf8")
         var C = await B.json()
-        var D = await f.readFile(DATA_PATH)
-        var A = await D.text()
+        var A = await f.readFile(DATA_PATH, "utf8")
 
         C.forEach(z => {
             if(z.username === req.query.name){
@@ -84,6 +81,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
