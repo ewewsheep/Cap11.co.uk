@@ -9,7 +9,8 @@ app.use(cors()); // allow all origins (quick fix)
 const DATA_PATH = path.join(__dirname, "Data.json");
 
 app.get("/Data.json", (req, res) => {
-  res.sendFile(DATA_PATH);
+  const data = require(DATA_PATH); // parses JSON automatically res.json(data)
+  res.json(data)
 });
 
 
@@ -81,6 +82,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
