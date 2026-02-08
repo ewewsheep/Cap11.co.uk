@@ -44,7 +44,7 @@ app.get("/PASS", (req, res) => {
         var A = await f.readFile(DATA_PATH, "utf8")
 
         C.forEach(z => {
-            if(z.username === req.query.name){
+            if(z.password === req.query.password){
                 A = A.replace(z.password,req.query.data)
                 console.log("IF HAS WORKED SEE LOG BELOW")
             }
@@ -63,7 +63,7 @@ app.get("/PFP", (req, res) => {
         var A = await f.readFile(DATA_PATH, "utf8")
 
         C.forEach(z => {
-            if(z.username === req.query.name){
+            if(z.pfp === req.query.pfp){
                 A = A.replace(z.pfp,req.query.data)
                 console.log("IF HAS WORKED SEE LOG BELOW")
             }
