@@ -37,5 +37,16 @@
         "rank":"Admin",
         "rankn": 12,
         "id": 4
+    },
+
+{
+        "username": "Percy",
+        "password": "abc",
+        "banned": false,
+        "pfp": "https://logos-world.net/wp-content/uploads/2021/11/UNC-Symbol.png",
+        "rank":"Omega",
+        "rankn": 10,
+        "id": 5
     }
+
 ]
