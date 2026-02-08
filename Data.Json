@@ -44,8 +44,8 @@
         "password": "abc",
         "banned": false,
         "pfp": "https://logos-world.net/wp-content/uploads/2021/11/UNC-Symbol.png",
-        "rank":"Omega",
-        "rankn": 10,
+        "rank":"Subordianate",
+        "rankn": 11,
         "id": 5
     },
 
@@ -70,5 +70,6 @@
     }
 
 ]
+
 
 
