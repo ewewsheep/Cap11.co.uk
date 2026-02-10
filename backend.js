@@ -1,5 +1,7 @@
 const express = require("express")
 const f= require("fs").promises;
+const sql = require("sqlite3").verbose;
+const database = new sql.Database("cap11click")
 const fs= require("fs");
 const app = express()
 const path = require("path");
@@ -17,6 +19,20 @@ app.get("/Data.json", async (req, res) => {
 
 
 app.use(express.static("public"));
+
+app.get("/NBUTT",(req, res) => {
+  database.run("CREATE TABLE IF NOT EXISTS clicks(
+               clicknumber  INTEGER DEFAULT 0)")
+
+  database.run(`
+INSERT INTO clicks (clicknumber)
+SELECT 0
+WHERE NOT EXISTS (SELECT 1 FROM clicks)
+`);
+  
+  database.run("UPDATE clicks SET clicknumber= clicknumber + 1")
+}
+  
 
 app.get("/NAME", (req, res) => {
     async function play(){
@@ -81,6 +97,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
