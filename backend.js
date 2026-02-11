@@ -1,6 +1,6 @@
 const express = require("express")
 const f= require("fs").promises;
-const sql = require("sqlite3").verbose;
+const sql = require("sqlite3").verbose();
 const database = new sql.Database("cap11click")
 const fs= require("fs");
 const app = express()
@@ -99,6 +99,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
