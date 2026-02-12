@@ -19,8 +19,8 @@ app.get("/Data.json", async (req, res) => {
 
 
 app.use(express.static("public"));
-database.serialize(() => {
 app.get("/NBUTT",(req, res) => {
+  database.serialize(() => {
   database.run(`CREATE TABLE IF NOT EXISTS clicks(
                clicknumber  INTEGER DEFAULT 0)`)
 
@@ -100,6 +100,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
