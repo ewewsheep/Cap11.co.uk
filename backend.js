@@ -11,16 +11,17 @@ app.use(cors()); // allow all origins (quick fix)
 
 const DATA_PATH = path.join(__dirname, "Data.Json");
 
-app.get("/Data.json", async (req, res) => {
-  const data = await f.readFile(DATA_PATH, "utf8"); // parses JSON automatically res.json(data)#
-  var dat = JSON.parse(data)
-  res.json(dat)
+app.get("/Data.json", (req, res) => {
+  database.all(`SELECT * FROM clicks`, (err, rows) => {
+    res.json(rows)
+  })
 });
 
 
 app.use(express.static("public"));
 app.get("/NBUTT",(req, res) => {
   database.serialize(() => {
+    
   database.run(`CREATE TABLE IF NOT EXISTS clicks(
                clicknumber  INTEGER DEFAULT 0)`)
 
@@ -100,6 +101,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
