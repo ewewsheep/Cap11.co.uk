@@ -20,6 +20,7 @@ app.get("/Data.json", (req, res) => {
 
 app.use(express.static("public"));
 app.get("/NBUTT",(req, res) => {
+  console.log("BackendNBUTT")
   database.serialize(() => {
     
   database.run(`CREATE TABLE IF NOT EXISTS clicks(
@@ -101,6 +102,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
