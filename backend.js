@@ -26,14 +26,16 @@ app.use(express.static("public"));
 
 
 app.get("/NBUTT",(req, res) => {
-  console.log("BackendNBUTT")
+  console.log("NBUTT activated1")
   database.serialize(() => {
     
   database.run(`CREATE TABLE IF NOT EXISTS backtest(
                clicknumber  INTEGER DEFAULT 0)`,()=>{
                   database.run(`INSERT INTO backtest (clicknumber) VALUES (56889)`);
+                  console.log("NBUTT activated2")
                })
   database.run(`UPDATE backtest SET clicknumber= clicknumber + 1`, ()=>{
+      console.log("NBUTT activated3")
       res.send("Done")
   })
 })
@@ -105,6 +107,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
