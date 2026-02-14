@@ -1,7 +1,7 @@
 const express = require("express")
 const f= require("fs").promises;
-const sql = require("sqlite3").verbose();
-const database = new sql.Database("cap11click")
+/*const sql = require("sqlite3").verbose();
+const database = new sql.Database("cap11click")*/
 const fs= require("fs");
 const app = express()
 const path = require("path");
@@ -14,9 +14,7 @@ const DATA_PATH = path.join(__dirname, "Data.Json");
 
 
 app.get("/Data.json", (req, res) => {
-  database.all(`SELECT * FROM backtest`, (err, rows) => {
-    res.json(rows)
-  })
+  res.sendFile(path.join(__dirname, "Data.json"));
 });
 
 
@@ -25,7 +23,7 @@ app.use(express.static("public"));
 
 
 
-app.get("/NBUTT",(req, res) => {
+/*app.get("/NBUTT",(req, res) => {
   console.log("NBUTT activated1")
   database.serialize(() => {
     
@@ -39,7 +37,7 @@ app.get("/NBUTT",(req, res) => {
       res.send("Done")
   })
 })
-});
+});*/
 
 
   
