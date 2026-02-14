@@ -14,7 +14,8 @@ const DATA_PATH = path.join(__dirname, "Data.Json");
 
 
 app.get("/Data.json", (req, res) => {
-  res.sendFile(path.join(__dirname, "Data.Json"));
+  const data = await f.readFile(path.join(__dirname, "Data.Json"), "utf8");
+  res.json(JSON.parse(data)); 
 });
 
 
