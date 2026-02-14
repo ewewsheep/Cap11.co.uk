@@ -30,14 +30,9 @@ app.get("/NBUTT",(req, res) => {
   database.serialize(() => {
     
   database.run(`CREATE TABLE IF NOT EXISTS backtest(
-               clicknumber  INTEGER DEFAULT 0)`)
-
-  database.run(`
-    INSERT INTO backtest (clicknumber)
-    SELECT 0
-    WHERE NOT EXISTS (SELECT 1 FROM backtest)
-`);
-  
+               clicknumber  INTEGER DEFAULT 0)`,()=>{
+                  database.run(`INSERT INTO backtest (clicknumber) VALUES (56889)`);
+               })
   database.run(`UPDATE backtest SET clicknumber= clicknumber + 1`, ()=>{
       res.send("Done")
   })
@@ -110,6 +105,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
