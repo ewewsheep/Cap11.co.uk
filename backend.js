@@ -21,21 +21,21 @@ app.get("/Data.json", (req, res) => {
 app.use(express.static("public"));
 app.get("/NBUTT",(req, res) => {
   console.log("BackendNBUTT")
-  database.serialize(async() => {
+  database.serialize(() => {
     
- await database.run(`CREATE TABLE IF NOT EXISTS backtest(
+  database.run(`CREATE TABLE IF NOT EXISTS backtest(
                clicknumber  INTEGER DEFAULT 0)`)
 
- await database.run(`
-INSERT INTO backtest (clicknumber)
-SELECT 0
-WHERE NOT EXISTS (SELECT 1 FROM backtest)
+  database.run(`
+    INSERT INTO backtest (clicknumber)
+    SELECT 0
+    WHERE NOT EXISTS (SELECT 1 FROM backtest)
 `);
   
- await database.run(`UPDATE backtest SET clicknumber= clicknumber + 1`)
-})
-
+  database.run(`UPDATE backtest SET clicknumber= clicknumber + 1`)
+  
   res.send("Done")
+})
 });
   
 
