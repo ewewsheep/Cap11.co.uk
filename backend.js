@@ -23,11 +23,11 @@ app.get("/NBUTT",(req, res) => {
   console.log("BackendNBUTT")
   database.serialize(() => {
     
-  database.run(`CREATE TABLE IF NOT EXISTS clicks(
+  database.run(`CREATE TABLE IF NOT EXISTS backtest(
                clicknumber  INTEGER DEFAULT 0)`)
 
   database.run(`
-INSERT INTO clicks (clicknumber)
+INSERT INTO backtest (clicknumber)
 SELECT 0
 WHERE NOT EXISTS (SELECT 1 FROM clicks)
 `);
@@ -102,6 +102,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
