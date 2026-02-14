@@ -9,7 +9,9 @@ const cors = require("cors");
 
 app.use(cors()); // allow all origins (quick fix)
 
+
 const DATA_PATH = path.join(__dirname, "Data.Json");
+
 
 app.get("/Data.json", (req, res) => {
   database.all(`SELECT * FROM backtest`, (err, rows) => {
@@ -19,6 +21,10 @@ app.get("/Data.json", (req, res) => {
 
 
 app.use(express.static("public"));
+
+
+
+
 app.get("/NBUTT",(req, res) => {
   console.log("BackendNBUTT")
   database.serialize(() => {
@@ -32,11 +38,13 @@ app.get("/NBUTT",(req, res) => {
     WHERE NOT EXISTS (SELECT 1 FROM backtest)
 `);
   
-  database.run(`UPDATE backtest SET clicknumber= clicknumber + 1`)
-  
-  res.send("Done")
+  database.run(`UPDATE backtest SET clicknumber= clicknumber + 1`, ()=>{
+      res.send("Done")
+  })
 })
 });
+
+
   
 
 app.get("/NAME", (req, res) => {
@@ -102,6 +110,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
