@@ -14,7 +14,7 @@ const DATA_PATH = path.join(__dirname, "Data.Json");
 
 
 app.get("/Data.json", (req, res) => {
-  res.sendFile(path.join(__dirname, "Data.json"));
+  res.sendFile(path.join(__dirname, "Data.Json"));
 });
 
 
