@@ -29,7 +29,7 @@ app.get("/NBUTT",(req, res) => {
   database.run(`
 INSERT INTO backtest (clicknumber)
 SELECT 0
-WHERE NOT EXISTS (SELECT 1 FROM clicks)
+WHERE NOT EXISTS (SELECT 1 FROM backtest)
 `);
   
   database.run(`UPDATE backtest SET clicknumber= clicknumber + 1`)
@@ -102,6 +102,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
