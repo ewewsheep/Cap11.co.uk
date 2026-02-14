@@ -12,7 +12,7 @@ app.use(cors()); // allow all origins (quick fix)
 const DATA_PATH = path.join(__dirname, "Data.Json");
 
 app.get("/Data.json", (req, res) => {
-  database.all(`SELECT * FROM clicks`, (err, rows) => {
+  database.all(`SELECT * FROM backtest`, (err, rows) => {
     res.json(rows)
   })
 });
@@ -102,6 +102,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server started on", PORT);
 });
+
 
 
 
