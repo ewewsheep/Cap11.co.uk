@@ -36,4 +36,3 @@ externalPort = 80
 [deployment]
 deploymentTarget = "autoscale"
 run = ["node", "backend.js"]
-publicDir = "public"
