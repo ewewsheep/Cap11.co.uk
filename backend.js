@@ -114,10 +114,10 @@ app.listen(PORT, "0.0.0.0", () => {
 const token = "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"
 const owner = "ewewsheep"
 const repo = "Cap11.co.uk"
-const path = "Data.Json"
+const pathtd = "Data.Json"
 
 async function overwrite(a,b){
-  var res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`,{
+  var res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`,{
   var file = await fetch(DATA_PATH)
   var tfile = JSON.Parse(file.tostring())
   const full = tfile.foreach(z => {
