@@ -26,7 +26,7 @@
 
         async function ChangeUsername(data) {
             console.log("ligma")
-            await fetch("https://cap11-co-uk.onrender.com/NAME?data=" + data + "&name=" + GetInfo("username"));
+            await fetch("/NAME?data=" + data + "&name=" + GetInfo("username"));
             Relogusername();
             console.log("notcontinuityerror")  
         }
@@ -40,7 +40,7 @@
 
         async function ChangePassword(data) {
             console.log("ligma")
-            await fetch("https://cap11-co-uk.onrender.com/PASS?data=" + data + "&name=" + GetInfo("username"));
+            await fetch("/PASS?data=" + data + "&name=" + GetInfo("username"));
             Relogpassword();
             console.log("notcontinuityerror")  
         }
@@ -54,7 +54,7 @@
 
         async function ChangePfp(data) {
             console.log("ligma")
-            await fetch("https://cap11-co-uk.onrender.com/PFP?data=" + data + "&name=" + GetInfo("username"));
+            await fetch("/PFP?data=" + data + "&name=" + GetInfo("username"));
             Relogusername();
             console.log("notcontinuityerror")  
         }
@@ -72,5 +72,6 @@
     },1000)
     </script>
 </body>
+
 
 
