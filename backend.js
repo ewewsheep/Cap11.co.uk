@@ -117,15 +117,18 @@ const repo = "Cap11.co.uk"
 const pathtd = "Data.Json"
 
 async function overwrite(a,b){
-  var res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`,{
   var file = await fetch(DATA_PATH)
-  var tfile = JSON.Parse(file.tostring())
-  const full = tfile.foreach(z => {
-    if(z.username == a){tfile = tfile.replace(z.username,b)}
-      method:"PUT"
-      headers:{ Authorisation:`bearer ${token}`,
-        "Content-Type":"application/json"}
-      body:{JSON.stringify({message:"confirmedreplace"},
-        content: tfile
-}})
+  var tfile = JSON.parse(await file.text())
+
+  tfile.forEach(z => {
+    if (z.username == a) { z.username = b; }
+})
+  
+  var res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`,{                    
+    method:"PUT",
+    headers:{ Authorization:`Bearer ${token}`,
+        "Content-Type":"application/json"},
+    body:JSON.stringify({message:"confirmedreplace",
+      content: Buffer.from(JSON.stringify(tfile)).toString("base64")})
+}); };
   
