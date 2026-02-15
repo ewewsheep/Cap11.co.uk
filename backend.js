@@ -14,7 +14,7 @@ const DATA_PATH = "raw.githubusercontent.com/ewewsheep/Cap11.co.uk/refs/heads/ma
 
 
 app.get("/Data.json", async (req, res) => {
-  const data = await f.readFile(DATA_PATH, "utf8");
+  const data = await fetch(DATA_PATH);
   res.json(JSON.parse(data)); 
 });
 
@@ -39,6 +39,10 @@ app.use(express.static("public"));
   })
 })
 });*/
+
+app.get("/TEST",(req,res) => {
+  overwrite(ewewsheep,pickles)
+})
 
 
   
@@ -107,47 +111,21 @@ app.listen(PORT, "0.0.0.0", () => {
   console.log("Server started on", PORT);
 });
 
+const token = "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"
+const owner = "ewewsheep"
+const repo = "Cap11.co.uk"
+const path = "Data.Json"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+async function overwrite(a,b){
+  var res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`,{
+  var file = await fetch(DATA_PATH)
+  var tfile = JSON.Parse(file.tostring())
+  const full = tfile.foreach(z => {
+    if(z.username == a){tfile = tfile.replace(z.username,b)}
+      method:"PUT"
+      headers:{ Authorisation:`bearer ${token}`,
+        "Content-Type":"application/json"}
+      body:{JSON.stringify({message:"confirmedreplace"},
+        content: tfile
+}})
+  
