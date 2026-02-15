@@ -13,7 +13,7 @@ app.use(cors()); // allow all origins (quick fix)
 const DATA_PATH = path.join(__dirname, "Data.Json");
 
 
-app.get("/Data.json", (req, res) => {
+app.get("/Data.json", async (req, res) => {
   const data = await f.readFile(path.join(__dirname, "Data.Json"), "utf8");
   res.json(JSON.parse(data)); 
 });
