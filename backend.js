@@ -10,7 +10,7 @@ const cors = require("cors");
 app.use(cors()); // allow all origins (quick fix)
 
 
-const DATA_PATH = raw.githubusercontent.com/ewewsheep/Cap11.co.uk/refs/heads/main/Data.Json;
+const DATA_PATH = "raw.githubusercontent.com/ewewsheep/Cap11.co.uk/refs/heads/main/Data.Json"
 
 
 app.get("/Data.json", async (req, res) => {
