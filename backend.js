@@ -10,11 +10,11 @@ const cors = require("cors");
 app.use(cors()); // allow all origins (quick fix)
 
 
-const DATA_PATH = path.join(__dirname, "Data.Json");
+const DATA_PATH = raw.githubusercontent.com/ewewsheep/Cap11.co.uk/refs/heads/main/Data.Json;
 
 
 app.get("/Data.json", async (req, res) => {
-  const data = await f.readFile(path.join(__dirname, "Data.Json"), "utf8");
+  const data = await f.readFile(DATA_PATH), "utf8");
   res.json(JSON.parse(data)); 
 });
 
