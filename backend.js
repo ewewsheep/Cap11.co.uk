@@ -14,7 +14,7 @@ const DATA_PATH = raw.githubusercontent.com/ewewsheep/Cap11.co.uk/refs/heads/mai
 
 
 app.get("/Data.json", async (req, res) => {
-  const data = await f.readFile(DATA_PATH), "utf8");
+  const data = await f.readFile(DATA_PATH, "utf8");
   res.json(JSON.parse(data)); 
 });
 
