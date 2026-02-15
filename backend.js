@@ -124,12 +124,19 @@ async function overwrite(a,b){
   tfile.forEach(z => {
     if (z.username == a) { z.username = b; }
 })
+
+  const fileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`, {
+    headers: { Authorization: `Bearer ${token}` }
+  });
+  const fileData = await fileRes.json();
+  const shas = fileData.sha;
   
-  var res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`,{                    
+  var res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`,{
     method:"PUT",
     headers:{ Authorization:`Bearer ${token}`,
         "Content-Type":"application/json"},
     body:JSON.stringify({message:"confirmedreplace",
+      sha: shas,
       content: Buffer.from(JSON.stringify(tfile)).toString("base64")})
 }); };
   
