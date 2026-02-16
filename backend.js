@@ -140,7 +140,7 @@ async function overwrite(a,b){
       sha: shas,
       content: Buffer.from(JSON.stringify(tfile)).toString("base64")})
 });
-const ghJson = await ghRes.json();
-console.log("GitHub response:", res);
+const ghJson = await res.json();
+console.log("GitHub response:", ghJson);
 };
   
