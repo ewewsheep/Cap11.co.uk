@@ -50,60 +50,15 @@ app.get("/TEST",async(req,res) => {
   
 
 app.get("/NAME", (req, res) => {
-    async function play(){
-        var B = await f.readFile(DATA_PATH, "utf8")
-        var C = JSON.parse(B)
-        var A = await f.readFile(DATA_PATH, "utf8")
-
-        C.forEach(z => {
-            if(z.username === req.query.name){
-                A = A.replace(z.username,req.query.data)
-                console.log("IF HAS WORKED SEE LOG BELOW")
-            }
-        });
-        fs.writeFileSync(DATA_PATH,A)
-        console.log(A)
-    } 
-    play()
-    res.send("Finsihed")
+    overwrite(req.query.data,req.query.username,"username")
 })
 
 app.get("/PASS", (req, res) => {
-    async function play(){
-        var B = await f.readFile(DATA_PATH, "utf8")
-        var C = JSON.parse(B)
-        var A = await f.readFile(DATA_PATH, "utf8")
-
-        C.forEach(z => {
-            if(z.password === req.query.password){
-                A = A.replace(z.password,req.query.data)
-                console.log("IF HAS WORKED SEE LOG BELOW")
-            }
-        });
-        fs.writeFileSync(DATA_PATH,A)
-        console.log(A)
-    } 
-    play()
-    res.send("Finsihed")
+  overwrite(req.query.data,req.query.password,"password")
 })
 
 app.get("/PFP", (req, res) => {
-    async function play(){
-        var B = await f.readFile(DATA_PATH, "utf8")
-        var C = JSON.parse(B)
-        var A = await f.readFile(DATA_PATH, "utf8")
-
-        C.forEach(z => {
-            if(z.pfp === req.query.pfp){
-                A = A.replace(z.pfp,req.query.data)
-                console.log("IF HAS WORKED SEE LOG BELOW")
-            }
-        });
-        fs.writeFileSync(DATA_PATH,A)
-        console.log(A)
-    } 
-    play()
-    res.send("Finsihed")
+  overwrite(req.query.data,req.query.pfp,"pfp")
 })
 
 
@@ -118,12 +73,12 @@ const owner = "ewewsheep"
 const repo = "Cap11.co.uk"
 const pathtd = "Data.Json"
 
-async function overwrite(a,b){
+async function overwrite(a,b,c){
   var file = await fetch(DATA_PATH)
   var tfile = JSON.parse(await file.text())
 
   tfile.forEach(z => {
-    if (z.username == a) { z.username = b; }
+    if (z.c == a) { z.c = b; }
 })
 
   const fileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`, {
@@ -140,7 +95,5 @@ async function overwrite(a,b){
       sha: shas,
       content: Buffer.from(JSON.stringify(tfile)).toString("base64")})
 });
-const ghJson = await res.json();
-console.log("GitHub response:", ghJson);
 };
   
