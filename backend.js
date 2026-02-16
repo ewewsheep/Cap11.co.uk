@@ -78,7 +78,7 @@ async function overwrite(a,b,c){
   var tfile = JSON.parse(await file.text())
 
   tfile.forEach(z => {
-    if (z.c == a) { z.c = b; }
+    if (z[c] == a) { z[c] = b; }
 })
 
   const fileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`, {
