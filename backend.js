@@ -1,3 +1,4 @@
+const key = process.env.key;
 const express = require("express")
 const f= require("fs").promises;
 /*const sql = require("sqlite3").verbose();
