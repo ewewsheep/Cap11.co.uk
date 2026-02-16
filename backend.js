@@ -41,7 +41,7 @@ app.use(express.static("public"));
 });*/
 
 app.get("/TEST",(req,res) => {
-  overwrite("ewewsheep","pickles")
+  await overwrite("ewewsheep","pickles")
   res.send("Done")
 })
 
