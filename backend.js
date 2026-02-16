@@ -1,4 +1,7 @@
 const key = process.env.key;
+console.log("ENV TOKEN EXISTS:", !!process.env.key);
+console.log("ENV TOKEN LENGTH:", process.env.key?.length);
+
 const express = require("express")
 const f= require("fs").promises;
 /*const sql = require("sqlite3").verbose();
