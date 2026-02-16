@@ -75,7 +75,7 @@ app.listen(PORT, "0.0.0.0", () => {
   console.log("Server started on", PORT);
 });
 
-const token = "${key}"
+const token = "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"
 const owner = "ewewsheep"
 const repo = "Cap11.co.uk"
 const pathtd = "Data.Json"
