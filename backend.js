@@ -139,5 +139,8 @@ async function overwrite(a,b){
     body:JSON.stringify({message:"confirmedreplace",
       sha: shas,
       content: Buffer.from(JSON.stringify(tfile)).toString("base64")})
-}); };
+});
+const ghJson = await ghRes.json();
+console.log("GitHub response:", res);
+};
   
