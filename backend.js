@@ -15,7 +15,8 @@ const DATA_PATH = "https://raw.githubusercontent.com/ewewsheep/Cap11.co.uk/refs/
 
 app.get("/Data.json", async (req, res) => {
   const data = await fetch(DATA_PATH);
-  res.json(JSON.parse(data)); 
+  const json = await data.json();   // ← THIS is the fix
+  res.json(json);
 });
 
 
