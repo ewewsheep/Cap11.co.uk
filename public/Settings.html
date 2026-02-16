@@ -26,7 +26,7 @@
 
         async function ChangeUsername(data) {
             console.log("ligma")
-            await fetch("/NAME?data=" + data + "&user=" + GetInfo("username"));
+            await fetch("/NAME?data=" + data.trim() + "&user=" + GetInfo("username").trim());
             Relogusername();
             console.log("notcontinuityerror")  
         }
@@ -40,7 +40,7 @@
 
         async function ChangePassword(data) {
             console.log("ligma")
-            await fetch("/PASS?data=" + data + "&user=" + GetInfo("password"));
+            await fetch("/PASS?data=" + data.trim() + "&user=" + GetInfo("password").trim());
             Relogpassword();
             console.log("notcontinuityerror")  
         }
@@ -54,7 +54,7 @@
 
         async function ChangePfp(data) {
             console.log("ligma")
-            await fetch("/PFP?data=" + data + "&user=" + GetInfo("pfp"));
+            await fetch("/PFP?data=" + data.trim() + "&user=" + GetInfo("pfp").trim());
             Relogusername();
             console.log("notcontinuityerror")  
         }
@@ -72,6 +72,7 @@
     },1000)
     </script>
 </body>
+
 
 
 
