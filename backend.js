@@ -42,7 +42,7 @@ app.use(express.static("public"));
 });*/
 
 app.get("/TEST",async(req,res) => {
-  await overwrite("ewewsheep","pickles")
+  await overwrite("ewewsheep","pickles","username")
   res.send("Done")
 })
 
@@ -50,17 +50,17 @@ app.get("/TEST",async(req,res) => {
   
 
 app.get("/NAME", (req, res) => {
-    overwrite(req.query.data,req.query.username,username)
+    overwrite(req.query.data,req.query.username,"username")
     res.send("Done")
 })
 
 app.get("/PASS", (req, res) => {
-  overwrite(req.query.data,req.query.password,password)
+  overwrite(req.query.data,req.query.password,"password")
   res.send("Done")
 })
 
 app.get("/PFP", (req, res) => {
-  overwrite(req.query.data,req.query.pfp,pfp)
+  overwrite(req.query.data,req.query.pfp,"pfp")
   res.send("Done")
 })
 
