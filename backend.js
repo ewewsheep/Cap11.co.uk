@@ -81,7 +81,7 @@ async function overwrite(a,b,c){
   var tfile = JSON.parse(await file.text())
 
   tfile.forEach(z => {
-    if (z[c] == a) { z[c] = b; }
+    if (z.username == a) { z.username = b; }
 })
 
   const fileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`, {
@@ -98,5 +98,7 @@ async function overwrite(a,b,c){
       sha: shas,
       content: Buffer.from(JSON.stringify(tfile)).toString("base64")})
 });
+  const ghJson = await res.json(); 
+  console.log("GitHub response:", ghJson);
 };
   
