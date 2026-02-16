@@ -50,17 +50,17 @@ app.get("/TEST",async(req,res) => {
   
 
 app.get("/NAME", (req, res) => {
-    overwrite(req.query.data,req.query.username,"username")
+    overwrite(req.query.user,req.query.data,"username")
     res.send("Done")
 })
 
 app.get("/PASS", (req, res) => {
-  overwrite(req.query.data,req.query.password,"password")
+  overwrite(req.query.user,req.query.data,"password")
   res.send("Done")
 })
 
 app.get("/PFP", (req, res) => {
-  overwrite(req.query.data,req.query.pfp,"pfp")
+  overwrite(req.query.user,req.query.data,"pfp")
   res.send("Done")
 })
 
