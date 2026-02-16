@@ -46,7 +46,7 @@ app.use(express.static("public"));
 });*/
 
 app.get("/TEST",async(req,res) => {
-  await overwrite("ewewsheep","pickles","username")
+  await overwrite("pickles","ghotti","username")
   res.send("Done")
 })
 
