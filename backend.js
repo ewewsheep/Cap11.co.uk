@@ -40,7 +40,7 @@ app.use(express.static("public"));
 })
 });*/
 
-app.get("/TEST",(req,res) => {
+app.get("/TEST",asnyc(req,res) => {
   await overwrite("ewewsheep","pickles")
   res.send("Done")
 })
