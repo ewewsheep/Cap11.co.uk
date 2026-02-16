@@ -53,7 +53,7 @@ app.get("/TEST",async(req,res) => {
 
   
 
-app.get("/NAME", (req, res) => {#
+app.get("/NAME", (req, res) => {
     console.log(req.query.user)
     console.log(req.query.data)
     overwrite(req.query.user,req.query.data,"username")
