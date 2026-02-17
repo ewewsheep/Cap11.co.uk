@@ -1,7 +1,5 @@
 const express = require("express")
 const f= require("fs").promises;
-/*const sql = require("sqlite3").verbose();
-const database = new sql.Database("cap11click")*/
 const fs= require("fs");
 const app = express()
 const path = require("path");
@@ -21,25 +19,6 @@ app.get("/Data.json", async (req, res) => {
 
 
 app.use(express.static("public"));
-
-
-
-
-/*app.get("/NBUTT",(req, res) => {
-  console.log("NBUTT activated1")
-  database.serialize(() => {
-    
-  database.run(`CREATE TABLE IF NOT EXISTS backtest(
-               clicknumber  INTEGER DEFAULT 0)`,()=>{
-                  database.run(`INSERT INTO backtest (clicknumber) VALUES (56889)`);
-                  console.log("NBUTT activated2")
-               })
-  database.run(`UPDATE backtest SET clicknumber= clicknumber + 1`, ()=>{
-      console.log("NBUTT activated3")
-      res.send("Done")
-  })
-})
-});*/
 
 app.get("/TEST",async(req,res) => {
   await overwrite("pickles","ghotti","username")
@@ -73,7 +52,7 @@ app.listen(PORT, "0.0.0.0", () => {
   console.log("Server started on", PORT);
 });
 
-const token = const token = process.env.GIT_TOKEN;
+const token = process.env.GIT_TOKEN;
 const owner = "ewewsheep"
 const repo = "Cap11.co.uk"
 const pathtd = "Data.Json"
