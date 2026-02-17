@@ -87,7 +87,7 @@ async function overwrite(a,b,c){
   var tfile = JSON.parse(await file.text())
 
   tfile.forEach(z => {
-    if (z.username == a.trim()) { z.username = b.trim(); }
+    if (String(z.username).trim() == String(a).trim()) { z.username = b.trim(); }
 })
 
   const fileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`, {
