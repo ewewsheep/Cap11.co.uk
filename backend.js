@@ -56,7 +56,7 @@ app.get("/TEST",async(req,res) => {
 app.get("/NAME", (req, res) => {
     console.log(req.query.user)
     console.log(req.query.data)
-    overwrite("ghotti",req.query.data.toString(),"username")
+    overwrite("req.query.user",req.query.data.toString(),"username")
     res.send("Done")
 })
 
@@ -88,7 +88,7 @@ async function overwrite(a,b,c){
 
   tfile.forEach(z => {
     if (String(z.username).trim() == String(a).trim()) { z.username = b.trim(); }
-    console.log("bothRequal")}else{console.log("different")
+    console.log("bothRequal")}else{console.log("different")}
   })
 
   const fileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`, {
