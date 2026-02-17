@@ -26,7 +26,7 @@
 
         async function ChangeUsername(data) {
             console.log("ligma")
-            await fetch("/NAME?data=" + data.trim() + "&user=" + /*GetInfo("username").trim()*/ "gubby");
+            await fetch("/NAME?data=" + data.trim() + "&user=" + GetInfo("username").trim());
             Relogusername();
             console.log("notcontinuityerror")  
         }
@@ -72,6 +72,7 @@
     },1000)
     </script>
 </body>
+
 
 
 
