@@ -1,7 +1,3 @@
-const key = process.env.key;
-console.log("ENV TOKEN EXISTS:", !!process.env.key);
-console.log("ENV TOKEN LENGTH:", process.env.key?.length);
-
 const express = require("express")
 const f= require("fs").promises;
 /*const sql = require("sqlite3").verbose();
@@ -77,7 +73,7 @@ app.listen(PORT, "0.0.0.0", () => {
   console.log("Server started on", PORT);
 });
 
-const token = "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"
+const token = const token = process.env.GIT_TOKEN;
 const owner = "ewewsheep"
 const repo = "Cap11.co.uk"
 const pathtd = "Data.Json"
