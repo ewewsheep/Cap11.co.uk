@@ -88,7 +88,8 @@ async function overwrite(a,b,c){
 
   tfile.forEach(z => {
     if (String(z.username).trim() == String(a).trim()) { z.username = b.trim(); }
-})
+    console.log("bothRequal")}else{console.log("different")
+  })
 
   const fileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`, {
     headers: { Authorization: `Bearer ${token}` }
