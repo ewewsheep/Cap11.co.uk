@@ -88,7 +88,7 @@ async function overwrite(a,b,c){
 
   tfile.forEach(z => {
     console.log(z.username);
-    if (String(z.username).trim() == String(a).trim()) {
+    if (String(z.username).trim() == "GASMAT" {
         z.username = b.trim();
         console.log("bothRequal");
     }
