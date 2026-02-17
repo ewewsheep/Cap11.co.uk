@@ -87,11 +87,14 @@ async function overwrite(a,b,c){
   var tfile = JSON.parse(await file.text())
 
   tfile.forEach(z => {
-    if (String(z.username).trim() == String(a).trim()) { z.username = b.trim(); }
-      console.log("bothRequal")
+    console.log(z.username);
+    if (String(z.username).trim() == String(a).trim()) {
+        z.username = b.trim();
+        console.log("bothRequal");
     }
-    console.log(z.username)
-  )
+
+    console.log(z.username);
+  });
 
   const fileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`, {
     headers: { Authorization: `Bearer ${token}` }
