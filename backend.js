@@ -8,13 +8,20 @@ const cors = require("cors");
 app.use(cors()); // allow all origins (quick fix)
 
 
-const DATA_PATH = "https://raw.githubusercontent.com/ewewsheep/Cap11.co.uk/refs/heads/main/Data.Json"
+const DATA_PATH = path.join(__dirname, "Dataa.Json");
+const WEB_PATH = "https://raw.githubusercontent.com/ewewsheep/Cap11.co.uk/refs/heads/main/Dataa.Json";
 
+
+app.get("/Dataa.json", async (req, res) => {
+  const response = await fetch(WEB_PATH);
+  const json = await response.json();  // ← THIS is the fix
+  res.json(json);
+});
 
 app.get("/Data.json", async (req, res) => {
-  const data = await fetch(DATA_PATH);
-  const json = await data.json();   // ← THIS is the fix
-  res.json(json);
+  const data =  await f.readFile(DATA_PATH, "utf8");
+  const json = JSON.parse(data);                    // parse string into JS object
+  res.json(json); 
 });
 
 
@@ -29,19 +36,20 @@ app.get("/TEST",async(req,res) => {
   
 
 app.get("/NAME", (req, res) => {
-    console.log(req.query.user)
-    console.log(req.query.data)
     overwrite(req.query.user,req.query.data.toString(),"username")
+    overwriteB(req.query.user,req.query.data.toString(),"username")
     res.send("Done")
 })
 
 app.get("/PASS", (req, res) => {
   overwrite(req.query.user,req.query.data,"password")
+  overwriteB(req.query.user,req.query.data,"password")
   res.send("Done")
 })
 
 app.get("/PFP", (req, res) => {
   overwrite(req.query.user,req.query.data,"pfp")
+  overwriteB(req.query.user,req.query.data,"pfp")
   res.send("Done")
 })
 
@@ -56,6 +64,38 @@ const token = process.env.GIT_TOKEN;
 const owner = "ewewsheep"
 const repo = "Cap11.co.uk"
 const pathtd = "Data.Json"
+
+async function overwriteB(a,b,c){
+  var file = await f.readFile(DATA_PATH, "utf8"); 
+  var tfile = JSON.parse(file)
+
+  tfile.forEach(z => {
+    console.log(z.username);
+    if (String(z.username).trim() == a) { ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        z[c] = b.trim();
+        console.log("bothRequal");
+    }
+
+    console.log(z.username);
+  });
+
+  const fileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`, {
+    headers: { Authorization: `Bearer ${token}` }
+  });
+  const fileData = await fileRes.json();
+  const shas = fileData.sha;
+  
+  var res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`,{
+    method:"PUT",
+    headers:{ Authorization:`Bearer ${token}`,
+        "Content-Type":"application/json"},
+    body:JSON.stringify({message:"confirmedreplace",
+      sha: shas,
+      content: Buffer.from(JSON.stringify(tfile)).toString("base64")})
+});
+  const ghJson = await res.json(); 
+  console.log("GitHub response:", ghJson);
+};
 
 async function overwrite(a,b,c){
   var file = await fetch(DATA_PATH)
