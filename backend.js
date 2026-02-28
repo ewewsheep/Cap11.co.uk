@@ -78,7 +78,6 @@ async function overwriteB(a,b,c){
     f.writeFile(DATA_PATH, JSON.stringify(tfile));
     console.log(z.username);
   });
-  console.log("GitHub response:", ghJson);
 };
 
 async function overwrite(a,b,c){
