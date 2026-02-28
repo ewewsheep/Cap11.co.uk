@@ -17,7 +17,7 @@ async function syncFile() {
   await f.writeFile(DATA_PATH, text, "utf8");
 }
 
-SyncFile()
+syncFile()
 
 
 app.get("/Dataa.json", async (req, res) => {
