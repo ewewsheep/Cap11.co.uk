@@ -11,7 +11,9 @@ app.use(cors()); // allow all origins (quick fix)
 const DATA_PATH = path.join(__dirname, "Dataa.Json");
 const WEB_PATH = "https://raw.githubusercontent.com/ewewsheep/Cap11.co.uk/refs/heads/main/Dataa.Json";
 
-f.writeFile(DATA_PATH,fetch(WEB_PATH.text()))
+const response = await fetch(WEB_PATH);
+const text = await response.text();
+await f.writeFile(DATA_PATH, text, "utf8"); 
 
 
 app.get("/Dataa.json", async (req, res) => {
