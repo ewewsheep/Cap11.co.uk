@@ -82,7 +82,7 @@ async function overwriteB(a,b,c){
 };
 
 async function overwrite(a,b,c){
-  var file = await fetch(DATA_PATH)
+  var file = await fetch(WEB_PATH)
   var tfile = JSON.parse(await file.text())
 
   tfile.forEach(z => {
