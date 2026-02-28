@@ -75,25 +75,9 @@ async function overwriteB(a,b,c){
         z[c] = b.trim();
         console.log("bothRequal");
     }
-
+    await fs.writeFile("/Dataa.Json", JSON.stringify(tfile), "utf8");
     console.log(z.username);
   });
-
-  const fileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`, {
-    headers: { Authorization: `Bearer ${token}` }
-  });
-  const fileData = await fileRes.json();
-  const shas = fileData.sha;
-  
-  var res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`,{
-    method:"PUT",
-    headers:{ Authorization:`Bearer ${token}`,
-        "Content-Type":"application/json"},
-    body:JSON.stringify({message:"confirmedreplace",
-      sha: shas,
-      content: Buffer.from(JSON.stringify(tfile)).toString("base64")})
-});
-  const ghJson = await res.json(); 
   console.log("GitHub response:", ghJson);
 };
 
