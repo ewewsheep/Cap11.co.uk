@@ -75,7 +75,7 @@ async function overwriteB(a,b,c){
         z[c] = b.trim();
         console.log("bothRequal");
     }
-    await fs.writeFile("/Dataa.Json", JSON.stringify(tfile), "utf8");
+    fs.writeFile("/Dataa.Json", JSON.stringify(tfile), "utf8");
     console.log(z.username);
   });
   console.log("GitHub response:", ghJson);
