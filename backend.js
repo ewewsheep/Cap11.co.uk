@@ -8,8 +8,8 @@ const cors = require("cors");
 app.use(cors()); // allow all origins (quick fix)
 
 
-const DATA_PATH = path.join(__dirname, "Dataa.Json");
-const WEB_PATH = "https://raw.githubusercontent.com/ewewsheep/Cap11.co.uk/refs/heads/main/Dataa.Json";
+const DATA_PATH = path.join(__dirname, "Data.Json");
+const WEB_PATH = "https://raw.githubusercontent.com/ewewsheep/Cap11.co.uk/refs/heads/main/Data.Json";
 
 async function syncFile() {
   try{
