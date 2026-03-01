@@ -15,6 +15,7 @@ async function syncFile() {
   const response = await fetch(WEB_PATH);
   const text = await response.text();
   await f.writeFile(DATA_PATH, text, "utf8");
+  console.log("syncfile")
 }
 
 syncFile()
