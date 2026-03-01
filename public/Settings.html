@@ -46,7 +46,7 @@
         }
 
         function Relogpfp() {
-            const readycookie = document.cookie.replace(GetInfo("pfp"),document.getElementById("pfp").value).replace("User=","")
+            const readycookie = document.cookie.replace(GetInfo("pfp"),document.getElementById("pfp").value.split("?")[1]).replace("User=","")
             console.log(readycookie)
             document.cookie = "User=" + readycookie + ";max-age=28000;path=/";
             console.log("CookieRequestReset")
@@ -54,7 +54,7 @@
 
         async function ChangePfp(data) {
             console.log("ligma")
-            await fetch("/PFP?data=" + data.trim() + "&user=" + GetInfo("username").trim());
+            await fetch("/PFP?data=" + data.split("?")[1] + "&user=" + GetInfo("username"));
             Relogpfp();
             console.log("notcontinuityerror")  
         }
@@ -72,6 +72,7 @@
     },1000)
     </script>
 </body>
+
 
 
 
