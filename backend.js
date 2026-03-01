@@ -15,7 +15,7 @@ async function syncFile() {
   try{
   const response = await fetch(WEB_PATH);
   const text = await response.text();
-  await f.writeFile(DATA_PATH, "test worked" , "utf8");
+  await f.writeFile(DATA_PATH,text,"utf8");
   console.log("syncfile")}catch{
     console.error("SyncFailed")
   }
