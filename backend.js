@@ -67,7 +67,7 @@ app.get("/YES", async (req, res) => {
         message: ":3",
         content: encoded,
         sha: sha
-      })}
+      })})
     });
 
     res.send({ success: true, encoded });
