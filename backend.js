@@ -69,9 +69,6 @@ app.get("/YES", async (req, res) => {
         sha: sha
       })})
     });
-
-    res.send({ success: true, encoded });
-});
   
 
 app.get("/NAME", (req, res) => {
