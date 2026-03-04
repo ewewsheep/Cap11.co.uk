@@ -44,7 +44,34 @@ app.get("/TEST",async(req,res) => {
   res.send("Done")
 })
 
+app.get("/YES", async (req, res) => {
+    const to = "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"
+    const og = await fetch("/System.Json");
+    const jso = await og.json();
+    jso.forEach(item => {
+      if(item.name == "vote") item.yes = item.yes + 1;
+    });
 
+    const fileRes = await fetch("https://api.github.com/repos/ewewsheep/Cap11.co.uk/contents/System.Json",{headers:{"Authorization": `Bearer ${to}`}})
+    
+    const fileData = await fileRes.json();
+    const sha = fileData.sha;
+  
+    const encoded = Buffer.from(JSON.stringify(jso)).toString("base64");
+    const githubRes = await fetch(
+      "https://api.github.com/repos/ewewsheep/Cap11.co.uk/contents/System.Json"
+    ,{
+      method:"PUT",
+      headers:{"Authorization": `Bearer ${to}`},
+      body:JSON.stringify({
+        message: ":3",
+        content: encoded,
+        sha: sha
+      })}
+    });
+
+    res.send({ success: true, encoded });
+});
   
 
 app.get("/NAME", (req, res) => {
