@@ -68,6 +68,7 @@ app.get("/YES", async (req, res) => {
         content: encoded,
         sha: sha
       })})
+      res.send("YES VOTED")
     });
   
 
