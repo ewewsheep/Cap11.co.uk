@@ -45,8 +45,9 @@ app.get("/TEST",async(req,res) => {
 })
 
 app.get("/YES", async (req, res) => {
+    console.log("begun")
     const to = "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"
-    const og = await fetch("https://cap11.co.uk/System.Json");
+    const og = await f.readFile(path.join(__dirname,"System"));
     const jso = await og.json();
     console.log("Part1")
     jso.forEach(item => {
