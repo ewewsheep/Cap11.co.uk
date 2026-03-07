@@ -53,7 +53,7 @@ app.get("/YES", async (req, res) => {
     jso.forEach(item => {
       if(item.name == "vote") item.yes = item.yes + 1;
     });
-    f.writeFile(path.join(__dirname,"System.Json"),jso)
+    f.writeFile(path.join(__dirname,"System.Json"),JSON.stringify(jso))
     console.log("Part2")
     const fileRes = await fetch("https://api.github.com/repos/ewewsheep/Cap11.co.uk/contents/System.Json",{headers:{"Authorization": `Bearer ${to}`}})
     
@@ -87,7 +87,7 @@ app.get("/NO", async (req, res) => {
     jso.forEach(item => {
       if(item.name == "vote") item.no = item.no + 1;
     });
-    f.writeFile(path.join(__dirname,"System.Json"),jso)
+    f.writeFile(path.join(__dirname,"System.Json"),JSON.stringify(jso))
     console.log("Part2")
     const fileRes = await fetch("https://api.github.com/repos/ewewsheep/Cap11.co.uk/contents/System.Json",{headers:{"Authorization": `Bearer ${to}`}})
     
