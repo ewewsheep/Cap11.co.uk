@@ -48,7 +48,7 @@ app.get("/YES", async (req, res) => {
     console.log("begun")
     const to = "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"
     const og = await f.readFile(path.join(__dirname,"System.Json"),"utf8");
-    const jso = await og.json();
+    const jso = await JSON.parse(og);
     console.log("Part1")
     jso.forEach(item => {
       if(item.name == "vote") item.yes = item.yes + 1;
