@@ -72,6 +72,8 @@ app.get("/YES", async (req, res) => {
         sha: sha
       })})
       console.log("Part3")
+      const ghJson = await githubRes.json();
+      console.log("GitHub response:", ghJson);
       res.send("YES VOTED")
     });
   
