@@ -53,6 +53,7 @@ app.get("/YES", async (req, res) => {
     jso.forEach(item => {
       if(item.name == "vote") item.yes = item.yes + 1;
     });
+    f.writeFile(path.join(__dirname,"System.Json"),jso)
     console.log("Part2")
     const fileRes = await fetch("https://api.github.com/repos/ewewsheep/Cap11.co.uk/contents/System.Json",{headers:{"Authorization": `Bearer ${to}`}})
     
@@ -76,7 +77,40 @@ app.get("/YES", async (req, res) => {
       console.log("GitHub response:", ghJson);
       res.send("YES VOTED")
     });
+
+app.get("/NO", async (req, res) => {
+    console.log("begun")
+    const to = process.env.GIT_TOKEN
+    const og = await f.readFile(path.join(__dirname,"System.Json"),"utf8");
+    const jso = await JSON.parse(og);
+    console.log("Part1")
+    jso.forEach(item => {
+      if(item.name == "vote") item.no = item.no + 1;
+    });
+    f.writeFile(path.join(__dirname,"System.Json"),jso)
+    console.log("Part2")
+    const fileRes = await fetch("https://api.github.com/repos/ewewsheep/Cap11.co.uk/contents/System.Json",{headers:{"Authorization": `Bearer ${to}`}})
+    
+    const fileData = await fileRes.json();
+    const sha = fileData.sha;
   
+    const encoded = Buffer.from(JSON.stringify(jso)).toString("base64");
+    const githubRes = await fetch(
+      "https://api.github.com/repos/ewewsheep/Cap11.co.uk/contents/System.Json"
+    ,{
+      method:"PUT",
+      headers:{"Authorization": `Bearer ${to}`,
+        "Content-Type": "application/json"},
+      body:JSON.stringify({
+        message: ":3",
+        content: encoded,
+        sha: sha
+      })})
+      console.log("Part3")
+      const ghJson = await githubRes.json();
+      console.log("GitHub response:", ghJson);
+      res.send("YES VOTED")
+    });
 
 app.get("/NAME", (req, res) => {
     overwrite(req.query.user,req.query.data.toString(),"username")
