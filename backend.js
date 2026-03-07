@@ -46,7 +46,7 @@ app.get("/TEST",async(req,res) => {
 
 app.get("/YES", async (req, res) => {
     const to = "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"
-    const og = await fetch("/System.Json");
+    const og = await fetch(path.join(__dirname,"/System.Json"));
     const jso = await og.json();
     jso.forEach(item => {
       if(item.name == "vote") item.yes = item.yes + 1;
