@@ -62,7 +62,8 @@ app.get("/YES", async (req, res) => {
       "https://api.github.com/repos/ewewsheep/Cap11.co.uk/contents/System.Json"
     ,{
       method:"PUT",
-      headers:{"Authorization": `Bearer ${to}`},
+      headers:{"Authorization": `Bearer ${to}`,
+        "Content-Type": "application/json"},
       body:JSON.stringify({
         message: ":3",
         content: encoded,
