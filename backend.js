@@ -112,22 +112,30 @@ app.get("/NO", async (req, res) => {
       res.send("YES VOTED")
     });
 
+let Queue = Promise.resolve()
+
 app.get("/NAME", (req, res) => {
-    overwrite(req.query.user,req.query.data.toString(),"username")
-    overwriteB(req.query.user,req.query.data.toString(),"username")
+  Queue = Queue.then(async() => {
+    await overwrite(req.query.user,req.query.data.toString(),"username")
+    await overwriteB(req.query.user,req.query.data.toString(),"username")
     res.send("Done")
+  })
 })
 
 app.get("/PASS", (req, res) => {
-  overwrite(req.query.user,req.query.data,"password")
-  overwriteB(req.query.user,req.query.data,"password")
-  res.send("Done")
+  Queue = Queue.then(async() => {
+    await overwrite(req.query.user,req.query.data,"password")
+    await overwriteB(req.query.user,req.query.data,"password")
+    res.send("Done")
+  })
 })
 
 app.get("/PFP", (req, res) => {
-  overwrite(req.query.user,req.query.data,"pfp")
-  overwriteB(req.query.user,req.query.data,"pfp")
-  res.send("Done")
+  Queue = Queue.then( async () => {
+    await overwrite(req.query.user,req.query.data,"pfp")
+    await overwriteB(req.query.user,req.query.data,"pfp")
+    res.send("Done")
+  })
 })
 
 
