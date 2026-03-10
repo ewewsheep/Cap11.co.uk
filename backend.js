@@ -157,7 +157,7 @@ async function overwriteB(a,b,c){
   tfile.forEach(z => {
     console.log(z.username);
     if (String(z.id) == a) { ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        z[c] = b.trim();
+        z[c] = b;
         console.log("bothRequal");
     }
     f.writeFile(DATA_PATH, JSON.stringify(tfile));
@@ -172,7 +172,7 @@ async function overwrite(a,b,c){
   tfile.forEach(z => {
     console.log(z.username);
     if (String(z.id) == a) { ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        z[c] = b.trim();
+        z[c] = b;
         console.log("bothRequal");
     }
 
