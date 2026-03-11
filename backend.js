@@ -10,6 +10,7 @@ app.use(cors()); // allow all origins (quick fix)
 
 const DATA_PATH = path.join(__dirname, "Data.Json");
 const WEB_PATH = "https://raw.githubusercontent.com/ewewsheep/Cap11.co.uk/refs/heads/main/Data.Json";
+const SYSTEM_PATH = path.join(__dirname, "System.Json");
 
 async function syncFile() {
   try{
@@ -23,19 +24,17 @@ async function syncFile() {
 
 syncFile()
 
-
-app.get("/Dataa.json", async (req, res) => {
-  const response = await fetch(WEB_PATH);
-  const json = await response.json();  // ← THIS is the fix
-  res.json(json);
-});
-
 app.get("/Data.json", async (req, res) => {
   const data =  await f.readFile(DATA_PATH, "utf8");
   const json = JSON.parse(data);                    // parse string into JS object
   res.json(json); 
 });
 
+app.get("/System.Json", async (req, res) => {
+  const data =  await f.readFile(SYSTEM_PATH, "utf8");
+  const json = JSON.parse(data);                    // parse string into JS object
+  res.json(json); 
+});
 
 app.use(express.static("public"));
 
