@@ -158,19 +158,22 @@
 
     <script src="scripts.JS"></script>
     <script>
+
+    (async() => {
         yv = 0
         nv = 0
-        unf = fetch()
-        f = unf.json()
-        f.foreach(z => {
+        unf = await fetch("/System.Json")
+        f = await unf.json()
+        f.forEach(z => {
             if(z.name ==  "vote"){
                 yv = z.yes
                 nv = z.no
             }
         })
 
-        document.getElementById("yestxt").innerText = gg
-        document.getElementById("notxt").innerText = gg
+        document.getElementById("yestxt").innerText = "yv"
+        document.getElementById("notxt").innerText = "nv"
+    })()
     </script>
 </body>
 
