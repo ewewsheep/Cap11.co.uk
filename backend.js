@@ -159,9 +159,9 @@ async function overwriteB(a,b,c){
         z[c] = b;
         console.log("bothRequal");
     }
-    await f.writeFile(DATA_PATH, JSON.stringify(tfile));
     console.log(z.username);
   });
+  await f.writeFile(DATA_PATH, JSON.stringify(tfile));
 };
 
 async function overwrite(a,b,c){
