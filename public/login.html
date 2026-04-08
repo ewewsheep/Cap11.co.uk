@@ -31,8 +31,8 @@
                 data.forEach(item => {
                     if (item.password === document.getElementById("Password").value){
                         document.cookie = "User=" + (JSON.stringify(item)) + ";max-age=28000;path=/"
-                        return
                         found = true
+                        return
                     }
                 
                 });
