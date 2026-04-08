@@ -67,9 +67,9 @@
 
         //----------------------------------------------------------------------//
 
-        if(GetInfo("username") === null){window.location = "Home.html";}
+        if(GetInfo("id") === null){window.location = "Home.html";}
 
-        if(GetInfo("username") == null){
+        if(GetInfo("id") == null){
             document.getElementById("username").placeholder = "NOT A USER!";document.getElementById("pfp").placeholder = "NOT A USER!"
         }else{ document.getElementById("username").placeholder = GetInfo("username");document.getElementById("pfp").placeholder = GetInfo("pfp");document.getElementById("password").placeholder = GetInfo("password")}   
     },1000)
