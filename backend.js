@@ -13,12 +13,18 @@ const WEB_PATH = "https://raw.githubusercontent.com/ewewsheep/Cap11.co.uk/refs/h
 const SYSTEM_PATH = path.join(__dirname, "System.Json");
 
 async function syncFile() {
-  try{
-  const response = await fetch(WEB_PATH);
-  const text = await response.text();
-  await f.writeFile(DATA_PATH,text,"utf8");
-  console.log("syncfile")}catch{
-    console.error("SyncFailed")
+  try {
+    const token = process.env.GIT_TOKEN;
+    const response = await fetch(
+      "https://api.github.com/repos/ewewsheep/Cap11.co.uk/contents/Data.Json",
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    const data = await response.json();
+    const content = Buffer.from(data.content, "base64").toString("utf8");
+    await f.writeFile(DATA_PATH, content, "utf8");
+    console.log("✓ Synced from GitHub API (non-cached)");
+  } catch (err) {
+    console.error("✗ Sync failed:", err.message);
   }
 }
 
