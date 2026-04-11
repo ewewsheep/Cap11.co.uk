@@ -14,8 +14,9 @@ const SYSTEM_PATH = path.join(__dirname, "System.Json");
 app.get("/Data.json", async (req, res) => {
   const data =  await fetch(WEB_PATH);
   const json = await data.json();// parse string into JS object
-  console.log(json)
-  res.json(json);
+  const json2 = Object.values(json)
+  console.log(json2)
+  res.json(json2);
 });
 
 app.get("/System.Json", async (req, res) => {
