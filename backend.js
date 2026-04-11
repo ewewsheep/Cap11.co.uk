@@ -9,24 +9,8 @@ app.use(cors()); // allow all origins (quick fix)
 
 
 const DATA_PATH = path.join(__dirname, "Data.Json");
-const WEB_PATH = "https://raw.githubusercontent.com/ewewsheep/Cap11.co.uk/refs/heads/main/Data.Json";
+const WEB_PATH = "https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json";
 const SYSTEM_PATH = path.join(__dirname, "System.Json");
-
-async function syncFile() {
-  try {
-    const token = process.env.GIT_TOKEN;
-    const response = await fetch(
-      "https://api.github.com/repos/ewewsheep/Cap11.co.uk/contents/Data.Json",
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
-    const data = await response.json();
-    const content = Buffer.from(data.content, "base64").toString("utf8");
-    await f.writeFile(DATA_PATH, content, "utf8");
-    console.log("✓ Synced from GitHub API (non-cached)");
-  } catch (err) {
-    console.error("✗ Sync failed:", err.message);
-  }
-}
 
 syncFile()
 
@@ -122,7 +106,6 @@ let Queue = Promise.resolve()
 app.get("/NAME", (req, res) => {
   Queue = Queue.then(async() => {
     await overwrite(req.query.user,req.query.data.toString(),"username")
-    await overwriteB(req.query.user,req.query.data.toString(),"username")
     res.send("Done")
   })
 })
@@ -130,7 +113,6 @@ app.get("/NAME", (req, res) => {
 app.get("/PASS", (req, res) => {
   Queue = Queue.then(async() => {
     await overwrite(req.query.user,req.query.data,"password")
-    await overwriteB(req.query.user,req.query.data,"password")
     res.send("Done")
   })
 })
@@ -138,7 +120,6 @@ app.get("/PASS", (req, res) => {
 app.get("/PFP", (req, res) => {
   Queue = Queue.then( async () => {
     await overwrite(req.query.user,req.query.data,"pfp")
-    await overwriteB(req.query.user,req.query.data,"pfp")
     res.send("Done")
   })
 })
@@ -150,55 +131,19 @@ app.listen(PORT, "0.0.0.0", () => {
   console.log("Server started on", PORT);
 });
 
-const token = process.env.GIT_TOKEN;
-const owner = "ewewsheep"
-const repo = "Cap11.co.uk"
-const pathtd = "Data.Json"
-
-async function overwriteB(a,b,c){
-  var file = await f.readFile(DATA_PATH, "utf8"); 
-  var tfile = JSON.parse(file)
-
-  tfile.forEach(z => {
-    console.log(z.username);
-    if (String(z.id) == a) { ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        z[c] = b;
-        console.log("bothRequal");
-    }
-    console.log(z.username);
-  });
-  await f.writeFile(DATA_PATH, JSON.stringify(tfile));
-};
-
 async function overwrite(a,b,c){
   var file = await fetch(WEB_PATH)
-  var tfile = JSON.parse(await file.text())
+  var tfile = await file.json()
+  var before = await Object.values(tfile)
 
-  tfile.forEach(z => {
+  before.forEach(z => {
     console.log(z.username);
     if (String(z.id) == a) { ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         z[c] = b;
-        console.log("bothRequal");
-    }
-
-    console.log(z.username);
-  });
-
-  const fileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`, {
-    headers: { Authorization: `Bearer ${token}` }
-  });
-  const fileData = await fileRes.json();
-  const shas = fileData.sha;
-  
-  var res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${pathtd}`,{
-    method:"PUT",
-    headers:{ Authorization:`Bearer ${token}`,
-        "Content-Type":"application/json"},
-    body:JSON.stringify({message:"confirmedreplace",
-      sha: shas,
-      content: Buffer.from(JSON.stringify(tfile)).toString("base64")})
-});
-  const ghJson = await res.json(); 
-  console.log("GitHub response:", ghJson);
+    }});
+  var obj = {}
+  var identifynumber = 0
+  before.forEach(i => {obj[identifynumber] = i;identifynumber++})
+  await fetch(WEB_PATH,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(obj)})
 };
   
