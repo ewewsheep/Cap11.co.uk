@@ -8,14 +8,11 @@ const cors = require("cors");
 app.use(cors()); // allow all origins (quick fix)
 
 
-const DATA_PATH = path.join(__dirname, "Data.Json");
 const WEB_PATH = "https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json";
 const SYSTEM_PATH = path.join(__dirname, "System.Json");
 
-syncFile()
-
 app.get("/Data.json", async (req, res) => {
-  const data =  await f.readFile(DATA_PATH, "utf8");
+  const data =  await f.readFile(WEB_PATH, "utf8");
   const json = JSON.parse(data);                    // parse string into JS object
   res.json(json); 
 });
