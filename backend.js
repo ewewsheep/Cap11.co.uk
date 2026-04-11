@@ -15,8 +15,8 @@ app.get("/Data.json", async (req, res) => {
   const data =  await fetch(WEB_PATH);
   const json = await data.json();// parse string into JS object
   const json2 = Object.values(json)
-  res.json(json2);
   console.log(json2.text())
+  res.json(json2);
 });
 
 app.get("/System.Json", async (req, res) => {
