@@ -12,9 +12,10 @@ const WEB_PATH = "https://cap11-data-default-rtdb.europe-west1.firebasedatabase.
 const SYSTEM_PATH = path.join(__dirname, "System.Json");
 
 app.get("/Data.json", async (req, res) => {
-  const data =  await f.readFile(WEB_PATH, "utf8");
-  const json = JSON.parse(data);                    // parse string into JS object
-  res.json(json); 
+  const data =  await fetch(WEB_PATH, "utf8");
+  const json = await data.json();// parse string into JS object
+  const json2 = Object.values(json)
+  res.json(json2); 
 });
 
 app.get("/System.Json", async (req, res) => {
