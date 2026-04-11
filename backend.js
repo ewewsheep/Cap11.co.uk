@@ -12,7 +12,7 @@ const WEB_PATH = "https://cap11-data-default-rtdb.europe-west1.firebasedatabase.
 const SYSTEM_PATH = path.join(__dirname, "System.Json");
 
 app.get("/Data.json", async (req, res) => {
-  const data =  await fetch(WEB_PATH, "utf8");
+  const data =  await fetch(WEB_PATH);
   const json = await data.json();// parse string into JS object
   const json2 = Object.values(json)
   res.json(json2); 
