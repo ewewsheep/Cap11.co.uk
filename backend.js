@@ -134,16 +134,13 @@ app.listen(PORT, "0.0.0.0", () => {
 async function overwrite(a,b,c){
   var file = await fetch(WEB_PATH)
   var tfile = await file.json()
-  var before = await Object.values(tfile)
+  var final = await Object.values(tfile)
 
-  before.forEach(z => {
+  final.forEach(z => {
     console.log(z.username);
     if (String(z.id) == a) { ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         z[c] = b;
     }});
-  var obj = {}
-  var identifynumber = 0
-  before.forEach(i => {obj[identifynumber] = i;identifynumber++})
-  await fetch(WEB_PATH,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(obj)})
+  await fetch(WEB_PATH,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(final)})
 };
   
