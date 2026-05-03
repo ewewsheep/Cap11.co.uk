@@ -20,7 +20,7 @@ app.get("/Data.json", async (req, res) => {
   res.json(json2)
 });
 
-app.get("/scripts.JS", (req, res) => {
+app.get("/scripts.js", (req, res) => {
   res.sendFile(path.join(__dirname, "scripts.js"));
 });
 
