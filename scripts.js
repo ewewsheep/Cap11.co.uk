@@ -26,6 +26,8 @@ function IfClub(clubn,fun) {
     const clubslist = GetInfo("clubs")
 
     clubslist.forEach((club) => {
+        console.log(club)
+        console.log(clubn)
         if(club == clubn){
             fun()
         }else{alert("not in club some parts of the page will be blurred")}
