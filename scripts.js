@@ -23,9 +23,10 @@ function GetInfo(PL) {
 }
 
 function IfClub(clubn,fun) {
+    var tf = false
     if(GetInfo("clubs") != null){
     
-    var tf = false
+    
 
     clubslist.forEach((club) => {
         if(club == clubn){
