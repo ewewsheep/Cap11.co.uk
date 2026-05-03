@@ -29,7 +29,6 @@ function IfClub(clubn,fun) {
     clubslistjson.forEach((club) => {
         if(club == clubn){
             fun()
-            break;
         }
     })
 }
