@@ -44,7 +44,7 @@
                     <span id="rank">rank:</span>
                     <script>
                         setTimeout(() => {
-                            document.getElementById("namebox").innerText = GetInfo("username") ||  "Guest" + Math.floor(Math.random() * 9999 );
+                            document.getElementById("namebox").innerText = GetInfo("username") ||  "Visitor" ;
                             document.getElementById("pfpbox").src = GetInfo("pfp") || "https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa"
                             document.getElementById("rank").innerText = "rank:"+ GetInfo("rank") + "("+ GetInfo("rankn") + ")"
 
