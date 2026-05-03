@@ -26,7 +26,7 @@ function IfClub(clubn,fun) {
     var tf = false
     if(GetInfo("clubs") != null){
     
-    
+    const clubslist = GetInfo("clubs")
 
     clubslist.forEach((club) => {
         if(club == clubn){
