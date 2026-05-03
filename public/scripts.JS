@@ -23,10 +23,9 @@ function GetInfo(PL) {
 }
 
 function IfClub(clubn,fun) {
-    const clubslisttext = GetInfo("clubs")
-    const clubslistjson = JSON.parse(clubslisttext)
+    const clubslist = GetInfo("clubs")
 
-    clubslistjson.forEach((club) => {
+    clubslist.forEach((club) => {
         if(club == clubn){
             fun()
         }
