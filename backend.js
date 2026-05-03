@@ -20,6 +20,10 @@ app.get("/Data.json", async (req, res) => {
   res.json(json2)
 });
 
+app.get("/scripts.JS", (req, res) => {
+  res.sendFile(path.join(__dirname, "scripts.js"));
+});
+
 app.get("/System.Json", async (req, res) => {
   const data =  await f.readFile(SYSTEM_PATH, "utf8");
   const json = JSON.parse(data);                    // parse string into JS object
