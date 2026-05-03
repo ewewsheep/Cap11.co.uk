@@ -28,7 +28,7 @@ function IfClub(clubn,fun) {
     clubslist.forEach((club) => {
         if(club == clubn){
             fun()
-        }else{Alert("not in club some parts of the page will be blurred")}
+        }else{alert("not in club some parts of the page will be blurred")}
     })
 }
 
