@@ -23,7 +23,7 @@ function GetInfo(PL) {
 }
 
 function IfClub(clubn,fun) {
-    if(const clubslist = GetInfo("clubs") != null){
+    if(GetInfo("clubs") != null){
     
     var tf = false
 
