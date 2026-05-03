@@ -33,6 +33,6 @@ function IfClub(clubn,fun) {
         }
     })
     
-    if(tf == false){alert("not in club some parts of the page will be blurred")}
+    if(tf == false || GetProfile() == null){alert("not in club some parts of the page will be blurred")}
 }
 
