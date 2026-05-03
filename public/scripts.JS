@@ -22,3 +22,15 @@ function GetInfo(PL) {
     return profile[PL] || null;
 }
 
+function IfClub(clubn,fun) {
+    const clubslisttext = GetInfo("clubs")
+    const clubslistjson = JSON.parse(clubslisttext)
+
+    clubslistjson.forEach((club) => {
+        if(club == clubn){
+            fun()
+            break;
+        }
+    })
+}
+
