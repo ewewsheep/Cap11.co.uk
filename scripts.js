@@ -24,13 +24,15 @@ function GetInfo(PL) {
 
 function IfClub(clubn,fun) {
     const clubslist = GetInfo("clubs")
+    var tf = false
 
     clubslist.forEach((club) => {
-        console.log(club)
-        console.log(clubn)
         if(club == clubn){
             fun()
-        }else{alert("not in club some parts of the page will be blurred")}
+            tf = true
+        }
     })
+    
+    if(tf == false){alert("not in club some parts of the page will be blurred")}
 }
 
