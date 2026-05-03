@@ -23,7 +23,8 @@ function GetInfo(PL) {
 }
 
 function IfClub(clubn,fun) {
-    const clubslist = GetInfo("clubs")
+    if(const clubslist = GetInfo("clubs") != null){
+    
     var tf = false
 
     clubslist.forEach((club) => {
@@ -31,8 +32,8 @@ function IfClub(clubn,fun) {
             fun()
             tf = true
         }
-    })
+    })}
     
-    if(tf == false || GetProfile() == null){alert("not in club some parts of the page will be blurred")}
+    if(tf == false){alert("not in club some parts of the page will be blurred")}
 }
 
