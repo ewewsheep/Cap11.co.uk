@@ -194,6 +194,23 @@
         document.getElementById("yestxt").innerText = "Yes: " + yv
         document.getElementById("notxt").innerText = "No: " + nv
     })()
+
+
+        if(GetInfo(id) != null){
+            function Login() {   
+            fetch('/Data.json')
+                .then(response => response.json())
+                .then(data => {
+                data.forEach(item => {
+                    if (item.id == GetInfo("id").value){
+                        document.cookie = "User=" + (JSON.stringify(item)) + ";max-age=864000;path=/"
+                        found = true
+                        return
+                    }
+                
+                });
+            }
+            }
     </script>
 </body>
 
