@@ -202,7 +202,7 @@
                 .then(response => response.json())
                 .then(data => {
                 data.forEach(item => {
-                    if (item.id == GetInfo("id") && item.password == GetInfo("password"){
+                    if (item.id == GetInfo("id") && item.password == GetInfo("password")){
                         document.cookie = "User=" + (JSON.stringify(item)) + ";max-age=864000;path=/"
                     };
                 });
