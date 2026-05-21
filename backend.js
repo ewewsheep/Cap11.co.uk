@@ -10,6 +10,7 @@ app.use(cors()); // allow all origins (quick fix)
 
 const WEB_PATH = "https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json";
 const SYSTEM_PATH = path.join(__dirname, "System.Json");
+const system = "https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v.json"
 
 app.get("/Data.json", async (req, res) => {
   const data =  await fetch(WEB_PATH);
@@ -25,7 +26,7 @@ app.get("/scripts.js", (req, res) => {
 });
 
 app.get("/System.Json", async (req, res) => {
-  const data =  await f.readFile(SYSTEM_PATH, "utf8");
+  const data =  await f.readFile(system, "utf8");
   const json = JSON.parse(data);                    // parse string into JS object
   res.json(json); 
 });
@@ -40,71 +41,19 @@ app.get("/TEST",async(req,res) => {
 })
 
 app.get("/YES", async (req, res) => {
-    console.log("begun")
-    const to = process.env.GIT_TOKEN
-    const og = await f.readFile(path.join(__dirname,"System.Json"),"utf8");
-    const jso = await JSON.parse(og);
-    console.log("Part1")
-    jso.forEach(item => {
-      if(item.name == "vote") item.yes = item.yes + 1;
-    });
-    f.writeFile(path.join(__dirname,"System.Json"),JSON.stringify(jso))
-    console.log("Part2")
-    const fileRes = await fetch("https://api.github.com/repos/ewewsheep/Cap11.co.uk/contents/System.Json",{headers:{"Authorization": `Bearer ${to}`}})
-    
-    const fileData = await fileRes.json();
-    const sha = fileData.sha;
-  
-    const encoded = Buffer.from(JSON.stringify(jso)).toString("base64");
-    const githubRes = await fetch(
-      "https://api.github.com/repos/ewewsheep/Cap11.co.uk/contents/System.Json"
-    ,{
-      method:"PUT",
-      headers:{"Authorization": `Bearer ${to}`,
-        "Content-Type": "application/json"},
-      body:JSON.stringify({
-        message: ":3",
-        content: encoded,
-        sha: sha
-      })})
-      console.log("Part3")
-      const ghJson = await githubRes.json();
-      console.log("GitHub response:", ghJson);
-      res.send("YES VOTED")
+     var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v/vote.json")
+      var tfile = await file.json()
+      tfile.yes = tfile.yes + 1
+      await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v/vote.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(tfile)})
+      res.send("yes voted")
     });
 
 app.get("/NO", async (req, res) => {
-    console.log("begun")
-    const to = process.env.GIT_TOKEN
-    const og = await f.readFile(path.join(__dirname,"System.Json"),"utf8");
-    const jso = await JSON.parse(og);
-    console.log("Part1")
-    jso.forEach(item => {
-      if(item.name == "vote") item.no = item.no + 1;
-    });
-    f.writeFile(path.join(__dirname,"System.Json"),JSON.stringify(jso))
-    console.log("Part2")
-    const fileRes = await fetch("https://api.github.com/repos/ewewsheep/Cap11.co.uk/contents/System.Json",{headers:{"Authorization": `Bearer ${to}`}})
-    
-    const fileData = await fileRes.json();
-    const sha = fileData.sha;
-  
-    const encoded = Buffer.from(JSON.stringify(jso)).toString("base64");
-    const githubRes = await fetch(
-      "https://api.github.com/repos/ewewsheep/Cap11.co.uk/contents/System.Json"
-    ,{
-      method:"PUT",
-      headers:{"Authorization": `Bearer ${to}`,
-        "Content-Type": "application/json"},
-      body:JSON.stringify({
-        message: ":3",
-        content: encoded,
-        sha: sha
-      })})
-      console.log("Part3")
-      const ghJson = await githubRes.json();
-      console.log("GitHub response:", ghJson);
-      res.send("YES VOTED")
+    var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v/vote.json")
+      var tfile = await file.json()
+      tfile.no = tfile.no + 1
+      await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v/vote.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(tfile)})
+      res.send("no voted")
     });
 
 let Queue = Promise.resolve()
@@ -149,4 +98,4 @@ async function overwrite(a,b,c){
     }});
   await fetch(WEB_PATH,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(final)})
 };
-  
+
