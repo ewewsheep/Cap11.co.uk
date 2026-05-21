@@ -26,7 +26,7 @@ app.get("/scripts.js", (req, res) => {
 });
 
 app.get("/System.Json", async (req, res) => {
-  const data =  await f.readFile(system, "utf8");
+  const data =  await require(system);
   const json = JSON.parse(data);                    // parse string into JS object
   res.json(json); 
 });
