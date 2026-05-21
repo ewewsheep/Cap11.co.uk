@@ -189,12 +189,11 @@
         yv = 0
         nv = 0
         unf = await fetch("/System.Json")
-        f = await unf.json()
+        g = await unf.json()
+        f = g.vote
         f.forEach(z => {
-            if(z.name ==  "vote"){
                 yv = z.yes
                 nv = z.no
-            }
         })
 
         document.getElementById("yestxt").innerText = "Yes: " + yv
