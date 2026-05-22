@@ -27,7 +27,8 @@ app.get("/scripts.js", (req, res) => {
 
 app.get("/System.Json", async (req, res) => {
   const data =  await fetch(system);
-  res.json(data); 
+  const fin = data.json()
+  res.json(fin); 
 });
 
 app.use(express.static("public"));
