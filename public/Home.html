@@ -186,14 +186,12 @@
     <script>
 
     (async() => {
-        yv = 0
-        nv = 0
         unf = await fetch("/System.Json")
         g = await unf.json()
         f = g.vote
         
-        let yv = (f && f.y !== undefined) ? f.y : 0;
-        let nv = (f && f.n !== undefined) ? f.n : 0;
+        let yv = f.y;
+        let nv = f.n;
 
         document.getElementById("yestxt").innerText = "Yes: " + yv
         document.getElementById("notxt").innerText = "No: " + nv
