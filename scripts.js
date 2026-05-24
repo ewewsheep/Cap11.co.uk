@@ -39,7 +39,7 @@ function IfClub(clubn,fun) {
 }
 
 
-function async headerscr(){
+async function headerscr(){
     var a = document.getElementById("InterDiv")
     var b = await fetch("/header.html")
     var c = await b.text()
