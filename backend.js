@@ -34,6 +34,7 @@ app.get("/System.Json", async (req, res) => {
 app.use(express.static("public"));
 app.use(express.static("public/games"));
 app.use(express.static("public/clubs"));
+app.use(express.static(__dirname))
 
 app.get("/TEST",async(req,res) => {
   await overwrite("pickles","ghotti","username")
