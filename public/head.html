@@ -1,0 +1,68 @@
+<head style="margin:0px">
+    <link rel="icon" href="/favcon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+    
+    <script>
+
+        setTimeout(() => {
+
+            const username = GetInfo("username");
+
+            if (!username) {
+                console.warn("Username is null user not logged in yet");
+                return;
+            }
+
+            
+        }, 1100)
+
+        setTimeout(() => {
+            const banstatus = GetInfo("banned")
+
+            if(banstatus === true) {
+                window.location.href = "bannedpage.html"
+            }
+        }, 1000);
+
+    </script>
+
+    <header>
+        <div style="background-color: rgb(68, 64, 154);display:flex;flex-direction: row; width:100%">
+                <img src="cap.png" style="height: 9em;width:18em;"/>
+                <div style="position:relative;left: 20em;display: flex;flex-direction: row;">
+                    <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: 650;color:white">
+                    <h2>Welcome!!,</h2>
+                    <h2 id="namebox">user</h2>
+                    <span id="rank">rank:</span>
+                    <script>
+                        setTimeout(() => {
+                            document.getElementById("namebox").innerText = GetInfo("username") ||  "Visitor" ;
+                            document.getElementById("pfpbox").src = GetInfo("pfp") || "https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa"
+                            document.getElementById("rank").innerText = "rank:"+ GetInfo("rank") + "("+ GetInfo("rankn") + ")"
+
+                            if(GetInfo("rank") == null){
+                                document.getElementById("rank").innerText = "rank:guest(0)";
+                            }else{
+                                document.getElementById("rank").innerText = "rank:"+ GetInfo("rank") + "("+ GetInfo("rankn") + ")"
+                            }
+                        }, 2000);
+                    </script>
+                </div>
+                <img id="pfpbox" src="https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa" style="width: 8em;height:8em;border-radius: 100%;background-color: rgb(194, 194, 194);"/>
+            </div>
+        </div>
+
+        <div style="display:flex; flex-direction:row; background-color:rgb(68, 64, 154); width:100%;font-family: 'Courier New', Courier, monospace;border-style:solid; border-width:3px; border-color:black">
+            <div style="display:flex; flex-direction:row; background-color:rgb(68, 64, 154); width:100%;font-family: 'Courier New', Courier, monospace">
+              <a href="Roblox.html"     style="flex:1; height:5em; display:flex; align-items:center; justify-content:center; text-decoration:none; color:White;">Roblox</a>
+              <a href="GorillaTag.html" style="flex:1; height:5em; display:flex; align-items:center; justify-content:center; text-decoration:none; color:White;">Gorilla tag</a>
+              <a href="login.html"      style="flex:1.5; height:5em; display:flex; align-items:center; justify-content:center; text-decoration:none; color:White;">Login</a>
+              <a href="Settings.html"   style="flex:1.5; height:5em; display:flex; align-items:center; justify-content:center; text-decoration:none; color:White;">Settings</a>
+              <a href="Doomspire.html"     style="flex:1; height:5em; display:flex; align-items:center; justify-content:center; text-decoration:none; color:White;">Domspire</a>
+              <div style="flex:1; display:flex; align-items:center; justify-content:center; text-decoration:none; color:White; flex-direction: column"><details ><summary>clubs</summary> <a style="color:white" href="DoomspireClub.html">Doomspire rblx</a> <br> <a style="color:white" href="DivaClub.html">Diva</a> </details></div>
+              <button style="background-color: rgb(155,77.5,0);height: 5em;width:100%;border-style: hidden;display:flex;flex:0.5" onmouseup="window.location.href = 'UNDER.html'">UNDER CONSTRUCTION</button>
+            </div>
+        </div>
+    </header>
+</head>
