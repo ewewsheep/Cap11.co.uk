@@ -38,3 +38,24 @@ function IfClub(clubn,fun) {
     if(tf == false){alert("not in club some parts of the page will be blurred")}
 }
 
+
+setTimeout(() => {
+
+            const username = GetInfo("username");
+
+            if (!username) {
+                console.warn("Username is null user not logged in yet");
+                return;
+            }
+
+            
+        }, 1100)
+
+        setTimeout(() => {
+            const banstatus = GetInfo("banned")
+
+            if(banstatus === true) {
+                window.location.href = "bannedpage.html"
+            }
+        }, 1000);
+
