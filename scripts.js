@@ -40,6 +40,11 @@ function IfClub(clubn,fun) {
 
 
 function headerscr(){
+    var a = document.getElementById("InterDiv")
+    var b = fetch("/header.html")
+    var c = b.text()
+    a.innerHTML = c
+    
     setTimeout(() => {
 
             const username = GetInfo("username");
