@@ -47,6 +47,17 @@ async function headerscr(){
     a.innerHTML = c},50)
     
     setTimeout(() => {
+        document.getElementById("namebox").innerText = GetInfo("username") ||  "Visitor" ;
+        document.getElementById("pfpbox").src = GetInfo("pfp") || "https://th.bing.com/th/id/OIP.hGSCbXlcOjL_9mmzerqAbQHaHa"
+        document.getElementById("rank").innerText = "rank:"+ GetInfo("rank") + "("+ GetInfo("rankn") + ")"
+        if(GetInfo("rank") == null){
+            document.getElementById("rank").innerText = "rank:guest(0)";
+        }else{
+            document.getElementById("rank").innerText = "rank:"+ GetInfo("rank") + "("+ GetInfo("rankn") + ")"
+        }
+    }, 1000);
+    
+    setTimeout(() => {
 
             const username = GetInfo("username");
 
