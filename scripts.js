@@ -40,10 +40,11 @@ function IfClub(clubn,fun) {
 
 
 async function headerscr(){
+    setTimeout(() => {
     var a = document.getElementById("InterDiv")
     var b = await fetch("/header.html")
     var c = await b.text()
-    a.innerHTML = c
+    a.innerHTML = c},1000)
     
     setTimeout(() => {
 
