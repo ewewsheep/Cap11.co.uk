@@ -43,7 +43,7 @@ app.get("/TEST",async(req,res) => {
 app.get("/YES", async (req, res) => {
      var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v/vote.json")
       var tfile = await file.json()
-      tfile.yes = tfile.yes + 1
+      tfile.y = tfile.y + 1
       await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v/vote.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(tfile)})
       res.send("yes voted")
     });
@@ -51,7 +51,7 @@ app.get("/YES", async (req, res) => {
 app.get("/NO", async (req, res) => {
     var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v/vote.json")
       var tfile = await file.json()
-      tfile.no = tfile.no + 1
+      tfile.n = tfile.n + 1
       await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v/vote.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(tfile)})
       res.send("no voted")
     });
