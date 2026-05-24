@@ -39,7 +39,8 @@ function IfClub(clubn,fun) {
 }
 
 
-setTimeout(() => {
+function headerscr(){
+    setTimeout(() => {
 
             const username = GetInfo("username");
 
@@ -58,4 +59,5 @@ setTimeout(() => {
                 window.location.href = "bannedpage.html"
             }
         }, 1000);
+}
 
