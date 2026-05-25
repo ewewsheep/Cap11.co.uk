@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-
+<html>
 <head>
   <link rel="icon" href="/favcon.ico">
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" ></script>
-    <script>
-        headerscr()
-    </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
+
+  <script>
+    headerscr()
+  </script>
+
   <style>
     .unblur {
       filter: blur(0)
@@ -15,33 +17,39 @@
       filter: blur(10px)
     }
   </style>
-
 </head>
 
-<body style="display: flex;align-items: center;justify-content: center;flex-direction: column;">
+<body style="display:flex;align-items:center;justify-content:center;flex-direction:column;">
+
 <div id="InterDiv" style="width:100%"></div>
-  <span style="font-size:5em;font-family:'Courier New', Courier, monospace;text-decoration:wavy;" class="box text1">Plant Club</span>
 
-    <div style="display: flex;flex-direction:column; height: 10em; padding: 1.5em;gap: 2em;">
-        <div style="display: flex;flex-direction: column;">
-            <span>NAME:Plant Club</span> <br>
-            <!--<button onmousedown="window.location = 'https://www.roblox.com/games/1215581239/Doomspire-Brickbattle' ">
-                official Game
-            </button>-->
-            <p>Description:this is a club where you and cap11 can love plants</p>
-        </div>
+<span style="font-size:5em;font-family:'Courier New', Courier, monospace;text-decoration:wavy;" class="box text1">
+  Plant Club
+</span>
 
-        <img src="https://m.media-amazon.com/images/I/71N-SfRC7hL._AC_SX679_.jpg" style="width: 500px;align-self: flex-start;"/>
-    </div>
+<div style="display:flex;flex-direction:column;height:10em;padding:1.5em;gap:2em;">
+  <div style="display:flex;flex-direction:column;">
+    <span>NAME: Plant Club</span>
+    <p>Description: this is a club where you and cap11 can love plants</p>
+  </div>
 
-    <div id="hidebox" style="display: flex;flex-direction:row;height: 10em; padding: 1.5em;gap: 2em; align-items:centre;justify-content:centre" class="blur box text1">
-        <span>nothing club exclusive yet!</span>
-    </div>
-  
-  <script src="scripts.js" defer></script>
-  <script>
-    setTimeout(() => {
-      IfClub("Plant",() => {document.getElementById("hidebox").className = "unblur"});
-    },1000);
-  </script>
+  <img src="https://m.media-amazon.com/images/I/71N-SfRC7hL._AC_SX679_.jpg"
+       style="width:500px;align-self:flex-start;">
+</div>
+
+<div id="hidebox" style="display:flex;flex-direction:row;height:10em;padding:1.5em;gap:2em;align-items:center;justify-content:center;" class="blur box text1">
+  <span>nothing club exclusive yet!</span>
+</div>
+
+<script>
+  setTimeout(() => {
+    IfClub("Plant", () => {
+      const box = document.getElementById("hidebox");
+      box.classList.remove("blur");
+      box.classList.add("unblur");
+    });
+  }, 1000);
+</script>
+
 </body>
+</html>
