@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-
+<html>
 <head>
   <link rel="icon" href="/favcon.ico">
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" ></script>
-    <script>
-        headerscr()
-    </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
+
+  <script>
+    headerscr()
+  </script>
+
   <style>
     .unblur {
       filter: blur(0)
@@ -15,33 +17,39 @@
       filter: blur(10px)
     }
   </style>
-
 </head>
 
-<body style="display: flex;align-items: center;justify-content: center;flex-direction: column;" class="box text1">
+<body style="display:flex;align-items:center;justify-content:center;flex-direction:column;">
+
 <div id="InterDiv" style="width:100%"></div>
-  <span style="font-size:5em;font-family:'Courier New', Courier, monospace;text-decoration:wavy;">Diva Club</span>
 
-    <div style="display: flex;flex-direction:row;height: 10em;border-radius: 2em; padding: 1.5em;gap: 2em;" class="box text1">
-        <div style="display: flex;flex-direction: column;">
-            <span>NAME:Diva Club</span> <br>
-            <!--<button onmousedown="window.location = 'https://www.roblox.com/games/1215581239/Doomspire-Brickbattle' ">
-                official Game
-            </button>-->
-            <p>Description:this is a club where you and cap11 members be absolute Divas</p>
-        </div>
+<span style="font-size:5em;font-family:'Courier New', Courier, monospace;text-decoration:wavy;">
+  Diva Club
+</span>
 
-        <img src="https://as2.ftcdn.net/v2/jpg/04/01/44/55/1000_F_401445584_UQTcPdiygT6CajqY2aeSZkRuFqjGN3ni.jpg" style="width: 500px;align-self: flex-start;"/>
-    </div>
+<div style="display:flex;flex-direction:row;height:10em;border-radius:2em;padding:1.5em;gap:2em;" class="box text1">
+  <div style="display:flex;flex-direction:column;">
+    <span>NAME: Diva Club</span>
+    <p>Description: this is a club where you and cap11 members be absolute Divas</p>
+  </div>
 
-    <div id="hidebox" style="display: flex;flex-direction:row;height: 10em; padding: 1.5em;gap: 2em; align-items:centre;justify-content:centre" class="blur box text1">
-        <span>nothing club exclusive yet! - I think but i dont care >:P</span>
-    </div>
-  
-  <script src="scripts.js" defer></script>
-  <script>
-    setTimeout(() => {
-      IfClub("Diva",() => {document.getElementById("hidebox").className = "unblur"});
-    },1000);
-  </script>
+  <img src="https://as2.ftcdn.net/v2/jpg/04/01/44/55/1000_F_401445584_UQTcPdiygT6CajqY2aeSZkRuFqjGN3ni.jpg"
+       style="width:500px;align-self:flex-start;">
+</div>
+
+<div id="hidebox" style="display:flex;flex-direction:row;height:10em;padding:1.5em;gap:2em;align-items:center;justify-content:center;" class="blur">
+  <span>nothing club exclusive yet! - I think but i dont care >:P</span>
+</div>
+
+<script>
+  setTimeout(() => {
+    IfClub("Diva", () => {
+      const box = document.getElementById("hidebox");
+      box.classList.remove("blur");
+      box.classList.add("unblur");
+    });
+  }, 1000);
+</script>
+
 </body>
+</html>
