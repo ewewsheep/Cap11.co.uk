@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-
+<html>
 <head>
   <link rel="icon" href="/favcon.ico">
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" ></script>
-    <script>
-        headerscr()
-    </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
+
+  <script>
+    headerscr()
+  </script>
+
   <style>
     .unblur {
       filter: blur(0)
@@ -15,33 +17,42 @@
       filter: blur(10px)
     }
   </style>
-
 </head>
 
-<body style="display: flex;align-items: center;justify-content: center;flex-direction: column;" class="box text1">
-  <div id="InterDiv" style="width:100%"></div>
-    <span style="font-size:5em;font-family:'Courier New', Courier, monospace;text-decoration:wavy;">Doomspire Brick-Battle Club</span>
+<body style="display:flex;align-items:center;justify-content:center;flex-direction:column;" class="box text1">
 
-    <div style="height: 10em; padding: 1.5em;gap: 2em;">
-        <div style="display: flex;flex-direction: column;">
-            <span>NAME:Doomspire Club</span> <br>
-            <button onmousedown="window.location = 'https://www.roblox.com/games/1215581239/Doomspire-Brickbattle' ">
-                official Game
-            </button>
-            <p>Description:this is a club where you and cap11 members play DSBB</p>
-        </div>
+<div id="InterDiv" style="width:100%"></div>
 
-        <img src="https://tr.rbxcdn.com/180DAY-ccd7cca407b65106b60fe70cc45ff736/768/432/Image/Webp/noFilter" style="width: 500px;align-self: flex-start;"/>
-    </div>
+<span style="font-size:5em;font-family:'Courier New', Courier, monospace;text-decoration:wavy;">
+  Doomspire Brick-Battle Club
+</span>
 
-    <div id="hidebox" style="display: flex;flex-direction:row;height: 10em; padding: 1.5em;gap: 2em; align-items:centre;justify-content:centre" class="blur box text1">
-        <span>nothing club exclusive yet!</span>
-    </div>
-  
-  <script src="scripts.js" defer></script>
-  <script>
-    setTimeout(() => {
-      IfClub("Doomspire",() => {document.getElementById("hidebox").className = "unblur"});
-    },1000);
-  </script>
+<div style="height:10em;padding:1.5em;gap:2em;">
+  <div style="display:flex;flex-direction:column;">
+    <span>NAME: Doomspire Club</span>
+    <button onmousedown="window.location='https://www.roblox.com/games/1215581239/Doomspire-Brickbattle'">
+      official Game
+    </button>
+    <p>Description: this is a club where you and cap11 members play DSBB</p>
+  </div>
+
+  <img src="https://tr.rbxcdn.com/180DAY-ccd7cca407b65106b60fe70cc45ff736/768/432/Image/Webp/noFilter"
+       style="width:500px;align-self:flex-start;">
+</div>
+
+<div id="hidebox" style="display:flex;flex-direction:row;height:10em;padding:1.5em;gap:2em;align-items:center;justify-content:center;" class="blur box text1">
+  <span>nothing club exclusive yet!</span>
+</div>
+
+<script>
+  setTimeout(() => {
+    IfClub("Doomspire", () => {
+      const box = document.getElementById("hidebox");
+      box.classList.remove("blur");
+      box.classList.add("unblur");
+    });
+  }, 1000);
+</script>
+
 </body>
+</html>
