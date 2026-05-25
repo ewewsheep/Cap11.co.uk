@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+  <link rel="icon" href="/favcon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" ></script>
+    <script>
+        headerscr()
+    </script>
+  <style>
+    .unblur {
+      filter: blur(0)
+    }
+    .blur {
+      filter: blur(10px)
+    }
+  </style>
+
+</head>
+
+<body style="display: flex;align-items: center;justify-content: center;flex-direction: column;">
+<div id="InterDiv" style="width:100%"></div>
+  <span style="font-size:5em;font-family:'Courier New', Courier, monospace;text-decoration:wavy;">Diva Club</span>
+
+    <div style="display: flex;flex-direction:row;box-shadow:0px 0px 15px rgb(0, 0, 0,0.4);width: 30em;height: 10em;border-radius: 2em;font-family: 'Courier New', Courier, monospace;font-size: 30px; padding: 1.5em;gap: 2em;">
+        <div style="display: flex;flex-direction: column;">
+            <span>NAME:Plant Club</span> <br>
+            <!--<button onmousedown="window.location = 'https://www.roblox.com/games/1215581239/Doomspire-Brickbattle' ">
+                official Game
+            </button>-->
+            <p>Description:this is a club where you and cap11 can love plants</p>
+        </div>
+
+        <img src="https://as2.ftcdn.net/v2/jpg/04/01/44/55/1000_F_401445584_UQTcPdiygT6CajqY2aeSZkRuFqjGN3ni.jpg" style="width: 500px;align-self: flex-start;"/>
+    </div>
+
+    <div id="hidebox" style="display: flex;flex-direction:row;box-shadow:0px 0px 15px rgb(0, 0, 0,0.4);width: 30em;height: 10em;border-radius: 2em;font-family: 'Courier New', Courier, monospace;font-size: 30px; padding: 1.5em;gap: 2em; align-items:centre;justify-content:centre" class="blur">
+        <span>nothing club exclusive yet!</span>
+    </div>
+  
+  <script src="scripts.js" defer></script>
+  <script>
+    setTimeout(() => {
+      IfClub("Plant",() => {document.getElementById("hidebox").className = "unblur"});
+    },1000);
+  </script>
+</body>
