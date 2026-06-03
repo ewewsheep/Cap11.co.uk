@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="icon" href="/favcon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" ></script>
+    <script>
+        headerscr()
+    </script></head>
+
+<body style="display: flex;flex-direction: column;">
+    <div id="InterDiv" style="width:100%"></div>
+    <h1>CREATE ACCOUNT!</h1>
+    <br>
+    <br>
+    <input type="text" id="username" style="width: 15em;height: 3em;font-size: 60px;" placeholder=":Username:"/>
+    <input type="text" id="password" style="width: 15em;height: 3em;font-size: 60px;" placeholder="password"/>
+    <script>
+      async function create(){
+        var count = 0
+        var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json")
+        var convert1 = await file.json()
+        var convert2 = Object.values(convert1)
+        convert2.forEach((u) => {
+          if (u.id >= count) count = u.id + 1
+        })
+        var username = document.getElementById("username").value
+        var password = document.getElementById("password").value
+        fetch("/NEW?array=" + JSON.stringify({ "banned": false, "clubs": [ "member" ], "id": `${count}`, "password": `${password}`, "pfp": "https://static.vecteezy.com/system/resources/previews/000/437/945/original/vector-settings-icon.jpg", "rank": "Bronze", "rankn": 1, "username": `${username}` }))
+      }
+    </script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
