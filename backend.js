@@ -57,6 +57,15 @@ app.get("/NO", async (req, res) => {
       res.send("no voted")
     });
 
+app.get("/NEW", async (req, res) => {
+    var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v/vote.json")
+      var tfile = await file.json()
+      a = tfile.objects
+      b = a.push(req.array)
+      await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v/vote.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)})
+      res.send("no voted")
+    });
+
 let Queue = Promise.resolve()
 
 app.get("/NAME", (req, res) => {
