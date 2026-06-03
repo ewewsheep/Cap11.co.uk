@@ -60,10 +60,10 @@ app.get("/NO", async (req, res) => {
 app.get("/NEW", async (req, res) => {
     var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v/vote.json")
       var tfile = await file.json()
-      a = tfile.objects
+      a = Object.values(tfile)
       b = a.push(req.array)
       await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v/vote.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)})
-      res.send("no voted")
+      res.send("profile added")
     });
 
 let Queue = Promise.resolve()
