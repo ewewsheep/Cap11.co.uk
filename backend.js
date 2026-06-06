@@ -27,7 +27,9 @@ app.get("/scripts.js", (req, res) => {
 
 app.get("/System.Json", async (req, res) => {
   const data =  await fetch(system);
+  console.log(data)
   const fin = await data.json()
+  console.log(fin)
   res.json(fin); 
 });
 
