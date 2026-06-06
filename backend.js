@@ -64,7 +64,7 @@ app.get("/NEW", async (req, res) => {
       a = Object.values(tfile)
       a.push(JSON.parse(req.query.array))
       console.log(a)
-      ver x = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v/vote.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(a)})
+      var x = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v/vote.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(a)})
       console.log(await response.text())
       res.send("profile added")
     });
