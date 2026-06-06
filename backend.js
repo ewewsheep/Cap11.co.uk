@@ -59,7 +59,7 @@ app.get("/NO", async (req, res) => {
 
 app.get("/NEW", async (req, res) => {
   console.log(req.query.array)
-    var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d/vote.json")
+    var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json")
       var tfile = await file.json()
       a = Object.values(tfile)
       a.push(JSON.parse(req.query.array))
