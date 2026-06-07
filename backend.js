@@ -94,6 +94,22 @@ app.get("/PFP", (req, res) => {
   })
 })
 
+app.get("/CLUBCHANGE", async (req, res) => {
+    var a = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json")
+    var b = await a.json()
+    var c = Object.values(b)
+    var d = req.query.id
+    var e = req.query.club
+    c.forEach(item => {
+      if(item.id == d){
+        item.clubs.push(e)
+      }
+    })
+    await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(c)})
+    res.send("Done")
+  })
+})
+
 
 const PORT = 5000;
 
