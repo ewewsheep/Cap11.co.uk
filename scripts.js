@@ -84,7 +84,7 @@ async function create(){
         var convert1 = await file.json()
         var convert2 = Object.values(convert1)
         convert2.forEach((u) => {
-          if (u.id >= count) count = u.id + 1
+          if (u.id >= count) count = Number(u.id) + 1
         })
         var username = document.getElementById("username").value
         var password = document.getElementById("password").value
