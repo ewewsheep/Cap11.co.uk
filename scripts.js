@@ -76,6 +76,14 @@ async function headerscr(){
                 window.location.href = "bannedpage.html"
             }
         }, 1000);
+
+        var alpha = fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json")
+        var beta = await aplpha.json()
+        beta.forEach(item => {
+            if(item.id == GetInfo("id")){
+                document.cookie = JSON.stringify(item)
+            }  
+        })
 }
 
 async function create(){
