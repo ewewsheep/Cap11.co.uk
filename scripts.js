@@ -78,7 +78,7 @@ async function headerscr(){
         }, 1000);
 
         var alpha = fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json")
-        var beta = await aplpha.json()
+        var beta = await alpha.json()
         beta.forEach(item => {
             if(item.id == GetInfo("id")){
                 document.cookie = JSON.stringify(item)
