@@ -92,3 +92,9 @@ async function create(){
         window.location = "Create.html"
       }
 
+async function addclub(club){
+    var a = GetInfo("id")
+    var b = club
+    await fetch(`/CLUBCHANGE?id=${a}&club=${b}`)
+}
+
