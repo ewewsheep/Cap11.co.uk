@@ -108,7 +108,6 @@ app.get("/CLUBCHANGE", async (req, res) => {
     await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(c)})
     res.send("Done")
   })
-})
 
 
 const PORT = 5000;
