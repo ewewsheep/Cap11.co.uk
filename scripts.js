@@ -77,11 +77,20 @@ async function headerscr(){
             }
         }, 1000);
 
-        var alpha = fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json")
-        var beta = await alpha.json()
-        beta.forEach(item => {
-            if(item.id == GetInfo("id")){
-                document.cookie = JSON.stringify(item)
+        if(GetInfo("id") != null){
+            function Login() {   
+            fetch('/Data.json')
+                .then(response => response.json())
+                .then(data => {
+                data.forEach(item => {
+                    if (item.id == GetInfo("id") && item.password == GetInfo("password")){
+                        document.cookie = "User=" + (JSON.stringify(item)) + ";max-age=864000;path=/"
+                    };
+                });
+                });
+            };
+            Login()
+         }
             }  
         })
 }
