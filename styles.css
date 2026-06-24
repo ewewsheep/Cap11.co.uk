@@ -18,14 +18,12 @@
 .headerlink {
     height:5em;
     display:flex;
-    align-items:center;
     justify-content:center;
     text-decoration:none;
     width:100%
 }
 
 .headerlinks {
-    display:flex;
     justify-content:center;
     text-decoration:none;
     width:100%
