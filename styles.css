@@ -16,7 +16,9 @@
 }
 
 .headerlink {
+    align-items:centre;
     display:flex;
+    flex:1
     height:5em;
     display:flex;
     justify-content:center;
