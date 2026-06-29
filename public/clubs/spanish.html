@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="/favcon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" ></script>
+
+  <script>
+    headerscr()
+  </script>
+
+  <style>
+    .unblur {
+      filter: blur(0)
+    }
+    .blur {
+      filter: blur(10px)
+    }
+  </style>
+</head>
+
+<body style="display:flex;align-items:center;justify-content:center;flex-direction:column;">
+
+<div id="InterDiv" style="width:100%"></div>
+
+<span style="font-size:5em;font-family:'Courier New', Courier, monospace;text-decoration:wavy;">
+  Spanish Club
+</span>
+
+<div style="height:15em;padding:1.5em;gap:2em;display:flex;flex-direction:row" class="box text1">
+  <div style="display:flex;flex-direction:column;">
+    <span>NAME: club de fans de España</span>
+    <button onmousedown="window.location='https://www.roblox.com/games/1215581239/Doomspire-Brickbattle'">
+      official Game
+    </button>
+    <p>Description: this is a club where you can interact with your love for España</p>
+    <button class="joinbutton" onclick="addclub('Spain')"> JOIN </button>
+  </div>
+
+  <img src="https://thfvnext.bing.com/th/id/R.64383f78a67b0ce2f033ac0e37f85c3a?rik=Jy9MCW2Hjs94dw&pid=ImgRaw&r=0"
+       style="width:500px;align-self:flex-start;">
+</div>
+
+<div id="hidebox" style="display:flex;flex-direction:row;height:10em;padding:1.5em;gap:2em;align-items:center;justify-content:center;" class="blur box text1">
+  <span>try this code in our study tab</span>
+</div>
+
+<script>
+  setTimeout(() => {
+    IfClub("Spain", () => {
+      const box = document.getElementById("hidebox");
+      box.classList.remove("blur");
+      box.classList.add("unblur");
+    });
+  }, 1000);
+</script>
+
+</body>
+</html>
