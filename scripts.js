@@ -113,7 +113,7 @@ async function addclub(club){
     var c = GetInfo("club")
     var d = Object.values(c)
     var e = false
-    d.forEach(i => {if(i == club){e = true})
+    d.forEach(i => {if(i == club){e = true}})
 
     if(e == false){
         await fetch(`/CLUBCHANGE?id=${a}&club=${b}`)
