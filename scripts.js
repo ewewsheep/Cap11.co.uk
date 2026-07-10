@@ -110,13 +110,13 @@ async function create(){
 async function addclub(club){
     var a = GetInfo("id")
     var b = club
-    var c = GetInfo("club")
+    var c = GetInfo("clubs")
     var d = Object.values(c)
     var e = false
     d.forEach(i => {if(i == club){e = true}})
-    console.log(e)
     if(e == false){
         await fetch(`/CLUBCHANGE?id=${a}&club=${b}`)
     }
+    window.location.reload()
 }
 
