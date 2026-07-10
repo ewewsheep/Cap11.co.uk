@@ -114,7 +114,7 @@ async function addclub(club){
     var d = Object.values(c)
     var e = false
     d.forEach(i => {if(i == club){e = true}})
-
+    console.log(e)
     if(e == false){
         await fetch(`/CLUBCHANGE?id=${a}&club=${b}`)
     }
