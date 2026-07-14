@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="/favcon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" ></script>
+
+  <script>
+    headerscr()
+  </script>
+
+  <style>
+    .unblur {
+      filter: blur(0)
+    }
+    .blur {
+      filter: blur(10px)
+    }
+  </style>
+</head>
+
+<body style="display:flex;align-items:center;justify-content:center;flex-direction:column;">
+
+<div id="InterDiv" style="width:100%"></div>
+
+<span style="font-size:5em;font-family:'Courier New', Courier, monospace;text-decoration:wavy;">
+  Wizard Club
+</span>
+
+<div style="height:15em;padding:1.5em;gap:2em;display:flex;flex-direction:row" class="box text1">
+  <div style="display:flex;flex-direction:column;">
+    <span>NAME: Wizard</span>
+    </button>
+    <p>Description: this is a club where you do Wizard stuff</p>
+    <button class="joinbutton" style="background: linear-gradient(to right, purple, blue)" onclick="addclub('Wizard')"> JOIN </button>
+  </div>
+
+  <img src="https://cdn.pixabay.com/photo/2024/06/28/18/44/night-8859930_1280.jpg"
+       style="width:500px;align-self:flex-start;">
+</div>
+
+<div id="hidebox" style="display:flex;flex-direction:row;height:10em;padding:1.5em;gap:2em;align-items:center;justify-content:center;" class="blur box text1">
+  <span>recomended VR wizardry game :The Waltz of the Wizard (Early peak nd it will be added in a few weeks)🧙‍♂️</span>
+  <button href="https://store.steampowered.com/app/1094390/Waltz_of_the_Wizard/"> STEAM LINK </button>
+  <button href="https://www.meta.com/en-gb/experiences/waltz-of-the-wizard/2280285932034855/"> META LINK </button>
+</div>
+
+<script>
+  setTimeout(() => {
+    IfClub("Wizard", () => {
+      const box = document.getElementById("hidebox");
+      box.classList.remove("blur");
+      box.classList.add("unblur");
+    });
+  }, 1000);
+</script>
+
+</body>
+</html>
