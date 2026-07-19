@@ -121,7 +121,7 @@ async function cTrade(){
         var forq = document.getElementById("for").value
         var cinfo = document.getElementById("cinfo").value
         fetch("/LISTTRADE?array=" + encodeURIComponent(JSON.stringify({"name":`${name}`,"platform": `${platform}`,"giving":`${giving}`,"for":`${forq}`,"cinfo":`${cinfo}` })))
-        window.location = "Create.html"
+        window.location = "CreateTrade.html"
       }
 
 async function addclub(club){
