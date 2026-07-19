@@ -1,0 +1,22 @@
+<head>
+    <link rel="icon" href="/favcon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" ></script>
+    <script>
+        headerscr()
+    </script></head>
+<body>
+    <div id="InterDiv" style="width:100%"></div>
+    <div id="ContentDiv" style="width:100%"></div>
+    <script>
+        async function Run(){
+        let response = await fetch("Trade.json");
+        let a = await response.json();
+        a.forEach(b => {
+            document.getElementById("ContentDiv").innerHTML += "<span>"+b.for+"</span>"
+        })
+        }
+
+        Run()
+    </script>
+</body>
