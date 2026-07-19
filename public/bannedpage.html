@@ -9,7 +9,7 @@
 <body>
     <h1 >YOU ARE BANNED</h1>
 
-    <img src="https://www.bing.com/th/id/OIP.Hq33OiE5nLQFTSqY0O-qtQAAAA?w=238&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" style="width: 200px;height: 200px;position:relative;top: 10em;" />
+    <img src="https://static.vecteezy.com/system/resources/previews/021/432/992/original/banned-rubber-stamp-free-png.png" style="width: 200px;height: 200px;position:relative;top: 10em;" />
     <br>
     <br>
     <br>
@@ -22,15 +22,22 @@
     <br>
     <br>
     <br>
-    <h3 id="ttt">YOU ARE BEING LOGGED OUT/h3>
-    <span>10 seconds</span>
+    <h3 id="ttt">YOU MAY ASK FOR ASSISTANCE AT cap11web@hotmail.co.uk </h3><br>
+    <span id="reason" >ban reason = ?</span>
 
     <script>
-
+        a = fetch(Data.json)
+        b = a.json()
+        c = "ERROR"
+        forEach(b => {
+            if(GetInfo("username") == b.username){c = b.banreason}
+        })
+        document.getElementById("reason").innerText = "ban reason: " + c
         var time = 10
             setTimeout(() => {
-                document.cookie = "User='';max-age=672439;path=/;"
+                document.cookie = "User='';max-age=0;path=/;"
                 window.location = "/Home.html"
             },10000)
+        
     </script>
 </body>
