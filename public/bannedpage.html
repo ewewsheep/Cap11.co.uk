@@ -26,13 +26,15 @@
     <span id="reason" >ban reason = ?</span>
 
     <script>
-        a = fetch("Data.json")
-        b = a.json()
+        async function w(){
+        a = await fetch("Data.json")
+        b = await a.json()
         c = "ERROR"
-        forEach(b => {
-            if(GetInfo("username") == b.username){c = b.banreason}
-        })
+        b.forEach(d => {
+            if(GetInfo("username") == d.username){c = d.banreason}
+        })}
         document.getElementById("reason").innerText = "ban reason: " + c
+        w()
         var time = 10
             setTimeout(() => {
                 document.cookie = "User='';max-age=0;path=/;"
