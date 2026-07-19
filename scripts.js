@@ -107,6 +107,23 @@ async function create(){
         window.location = "Create.html"
       }
 
+async function cTrade(){
+        var count = 0
+        var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json")
+        var convert1 = await file.json()
+        var convert2 = Object.values(convert1)
+        convert2.forEach((u) => {
+          if (u.id >= count) count = Number(u.id) + 1
+        })
+        var name = document.getElementById("name").value
+        var platform = document.getElementById("game").value
+        var giving = document.getElementById("giving").value
+        var forq = document.getElementById("for").value
+        var cinfo = document.getElementById("cinfo").value
+        fetch("/LISTTRADE?array=" + encodeURIComponent(JSON.stringify({"name":`${name}`,"platform": `${platform}`,"giving":`${giving}`,"for":`${forq}`,"cinfo":`${cinfo}` })))
+        window.location = "Create.html"
+      }
+
 async function addclub(club){
     var a = GetInfo("id")
     var b = club
