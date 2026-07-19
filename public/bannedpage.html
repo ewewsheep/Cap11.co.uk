@@ -32,8 +32,9 @@
         c = "ERROR"
         b.forEach(d => {
             if(GetInfo("username") == d.username){c = d.banreason}
-        })}
+        })
         document.getElementById("reason").innerText = "ban reason: " + c
+        }
         w()
         var time = 10
             setTimeout(() => {
