@@ -20,7 +20,7 @@
         let response = await fetch("Trade.json");
         let a = await response.json();
         a.forEach(b => {
-            document.getElementById("ContentDiv").innerHTML += `<div class='box text1' style='height:10em;display:flex;flex-direction:column'>    <span>Name: ${b.name}</span>    <span>Game: ${b.platform}</span>    <span>Giving: ${b.giving}</span>    <span>For: ${b.for}</span>    </div>`
+            document.getElementById("ContentDiv").innerHTML += `<div class='box text1' style='height:10em;display:flex;flex-direction:column'>    <span>Name: ${b.name}</span>    <span>Game: ${b.platform}</span>    <span>Giving: ${b.giving}</span>    <span>For: ${b.for}</span>    <span>Contact: ${b.cinfo}</span>    </div>`
         })
         }
 
