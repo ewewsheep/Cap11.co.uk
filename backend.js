@@ -83,6 +83,7 @@ app.get("/NEW", async (req, res) => {
 
 app.get("/LISTTRADE", async (req, res) => {
   console.log(req.query.array)
+  console.log("Raw query:", decodeURIComponent(req.query.array))
     var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/t.json")
       var tfile = await file.json()
       a = Object.values(tfile)
