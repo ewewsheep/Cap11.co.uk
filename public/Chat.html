@@ -11,10 +11,13 @@
 </head>
 
 <body>
+  <div id="InterDiv" style="width:100%"></div>
   <h1>Chat</h1>
   <h3>MUST READ: IF YOU PUT ANY INAPROPRIATE CONTENT YOU WILL BE PERMENANTLY BANNED WITH NO APPEAL</h3>
-  <div id="InterDiv" style="width:100%"></div>
   <div id="ContentDiv" style="width:100%"></div>
+  <div style="width:100%,height:10em"></div>
+  <input type="text" id="msbox" placeholder="message" style="height:100%,width:100%,font-size:XX-Large">
+  <button style="height:100%,width:5em,font-size:XX-Large">→</button>
     <script>
         async function Run(){
         let response = await fetch("Chat.json");
