@@ -15,4 +15,15 @@
   <h3>MUST READ: IF YOU PUT ANY INAPROPRIATE CONTENT YOU WILL BE PERMENANTLY BANNED WITH NO APPEAL</h3>
   <div id="InterDiv" style="width:100%"></div>
   <div id="ContentDiv" style="width:100%"></div>
+    <script>
+        async function Run(){
+        let response = await fetch("Chat.json");
+        let a = await response.json();
+        a.forEach(b => {
+            document.getElementById("ContentDiv").innerHTML += `<div class='box text1' style='height:10em;display:flex;flex-direction:column'>    <span>Name: ${b.name}</span>    <span>rank: ${b.rank}</span>    <h3>Message: ${b.message}</h3>    </div>`
+        })
+        }
+
+        Run()
+    </script>
 </body>
