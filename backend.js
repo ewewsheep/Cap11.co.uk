@@ -30,6 +30,15 @@ app.get("/Trade.json", async (req, res) => {
   res.json(json2)
 });
 
+app.get("/Chat.json", async (req, res) => {
+  const data =  await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/c.json");
+  const text = await data.text();     // get raw data
+  const json = JSON.parse(text);
+  const json2 = Object.values(json)
+  console.log(json2)
+  res.json(json2)
+});
+
 app.get("/scripts.js", (req, res) => {
   res.sendFile(path.join(__dirname, "scripts.js"));
 });
