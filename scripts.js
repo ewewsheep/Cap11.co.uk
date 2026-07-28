@@ -125,6 +125,21 @@ async function cTrade(){
         window.location = "CreateTrade.html"
       }
 
+async function cChat(){
+        var count = 0
+        var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/c.json")
+        var convert1 = await file.json()
+        var convert2 = Object.values(convert1)
+        convert2.forEach((u) => {
+          if (u.id >= count) count = Number(u.id) + 1
+        })
+        var message = document.getElementById("msbox").value
+        var rank = GetInfo("rankn")
+        var name = GetInfo("name")
+        fetch("/ADDMESS?array=" + encodeURIComponent(JSON.stringify({"name":`${name}`,"rank":`${rank}`,"message":`${message}` })))
+        window.location = "Chat.html"
+      }
+
 async function addclub(club){
     var a = GetInfo("id")
     var b = club
