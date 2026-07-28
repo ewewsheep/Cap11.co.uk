@@ -103,6 +103,19 @@ app.get("/LISTTRADE", async (req, res) => {
       res.send("trade added")
     });
 
+app.get("/ADDMESS", async (req, res) => {
+  console.log(req.query.array)
+  console.log("Raw query:", decodeURIComponent(req.query.array))
+    var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/t.json")
+      var tfile = await file.json()
+      a = Object.values(tfile)
+      a.push(JSON.parse(req.query.array))
+      console.log(a)
+      var x = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/c.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(a)})
+      console.log(await x.text())
+      res.send("trade added")
+    });
+
 let Queue = Promise.resolve()
 
 app.get("/NAME", (req, res) => {
