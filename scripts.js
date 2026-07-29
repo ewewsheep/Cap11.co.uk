@@ -130,13 +130,14 @@ async function cChat(){
         var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/c.json")
         var convert1 = await file.json()
         var convert2 = Object.values(convert1)
+        var id = 0
         convert2.forEach((u) => {
           if (u.id >= count) count = Number(u.id) + 1
         })
         var message = document.getElementById("msbox").value
         var rank = GetInfo("rankn")
         var name = GetInfo("username")
-        fetch("/ADDMESS?array=" + encodeURIComponent(JSON.stringify({"name":`${name}`,"rank":`${rank}`,"message":`${message}` })))
+        fetch("/ADDMESS?array=" + encodeURIComponent(JSON.stringify({"name":`${name}`,"rank":`${rank}`,"message":`${message}`,"id":`${count}` })))
         window.location = "Chat.html"
       }
 
