@@ -20,7 +20,7 @@
   <button style="height:100%; width:5em; font-size:xx-large;" onclick="cChat()">→</button>
 </div>
     <script>
-
+    if(GetInfo("id") == null){window.location("NC.html")}
     var zelta = 0
         async function Update() {
     let response = await fetch("Chat.json");
