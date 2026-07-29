@@ -20,17 +20,6 @@
   <button style="height:100%; width:5em; font-size:xx-large;" onclick="cChat()">→</button>
 </div>
     <script>
-        let zelta = 0
-        async function Run(){
-        let response = await fetch("Chat.json");
-        let a = await response.json();
-        a.forEach(b => {
-            a += 1
-            document.getElementById("ContentDiv").innerHTML += `<div class='box text1' style='height:10em;display:flex;flex-direction:column'>    <span>Name: ${b.name}</span>    <span>rank: ${b.rank}</span>    <h3>Message: ${b.message}</h3>    </div>`
-        })}
-
-        Run()
-
         async function Update() {
     let response = await fetch("Chat.json");
     let a = await response.json();
