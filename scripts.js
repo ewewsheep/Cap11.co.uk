@@ -103,7 +103,7 @@ async function create(){
         })
         var username = document.getElementById("username").value
         var password = document.getElementById("password").value
-        fetch("/NEW?array=" + JSON.stringify({ "banned": false, "clubs": [ "member" ], "id": `${count}`, "password": `${password}`, "pfp": "https://static.vecteezy.com/system/resources/previews/000/437/945/original/vector-settings-icon.jpg", "rank": "Bronze", "rankn": 1, "username": `${username}`,"banreason":"x" }))
+        await fetch("/NEW?array=" + JSON.stringify({ "banned": false, "clubs": [ "member" ], "id": `${count}`, "password": `${password}`, "pfp": "https://static.vecteezy.com/system/resources/previews/000/437/945/original/vector-settings-icon.jpg", "rank": "Bronze", "rankn": 1, "username": `${username}`,"banreason":"x" }))
         window.location = "Create.html"
       }
 
@@ -121,7 +121,7 @@ async function cTrade(){
         var forq = document.getElementById("for").value
         var cinfo = document.getElementById("cinfo").value
         var id = GetInfo("id")
-        fetch("/LISTTRADE?array=" + encodeURIComponent(JSON.stringify({"name":`${name}`,"platform": `${platform}`,"giving":`${giving}`,"for":`${forq}`,"cinfo":`${cinfo}`,"id":`${id}` })))
+        await fetch("/LISTTRADE?array=" + encodeURIComponent(JSON.stringify({"name":`${name}`,"platform": `${platform}`,"giving":`${giving}`,"for":`${forq}`,"cinfo":`${cinfo}`,"id":`${id}` })))
         window.location = "CreateTrade.html"
       }
 
@@ -138,7 +138,6 @@ async function cChat(){
         var rank = GetInfo("rankn")
         var name = GetInfo("username")
         fetch("/ADDMESS?array=" + encodeURIComponent(JSON.stringify({"name":`${name}`,"rank":`${rank}`,"message":`${message}`,"id":`${count}` })))
-        window.location = "Chat.html"
       }
 
 async function addclub(club){
