@@ -29,7 +29,7 @@
             document.getElementById("ContentDiv").innerHTML += `<div class='box text1' style='height:10em;display:flex;flex-direction:column'>    <span>Name: ${b.name}</span>    <span>rank: ${b.rank}</span>    <h3>Message: ${b.message}</h3>    </div>`
         })}
 
-        while(true){
+        function Update(){
             let response = await fetch("Chat.json");
             let a = await response.json();
             a.forEach(b => {
@@ -37,6 +37,10 @@
                     document.getElementById("ContentDiv").innerHTML += `<div class='box text1' style='height:10em;display:flex;flex-direction:column'>    <span>Name: ${b.name}</span>    <span>rank: ${b.rank}</span>    <h3>Message: ${b.message}</h3>    </div>`;
                     zelta += 1
             }    }
+        }
+        
+        while(true){
+            Update()
         }
     </script>
 </body>
