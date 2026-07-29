@@ -20,6 +20,8 @@
   <button style="height:100%; width:5em; font-size:xx-large;" onclick="cChat()">→</button>
 </div>
     <script>
+
+    var zleta = 0
         async function Update() {
     let response = await fetch("Chat.json");
     let a = await response.json();
