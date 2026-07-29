@@ -137,7 +137,7 @@ async function cChat(){
         var message = document.getElementById("msbox").value
         var rank = GetInfo("rankn")
         var name = GetInfo("username")
-        fetch("/ADDMESS?array=" + encodeURIComponent(JSON.stringify({"name":`${name}`,"rank":`${rank}`,"message":`${message}`,"id":`${count}` })))
+        await fetch("/ADDMESS?array=" + encodeURIComponent(JSON.stringify({"name":`${name}`,"rank":`${rank}`,"message":`${message}`,"id":`${count}` })))
       }
 
 async function addclub(club){
