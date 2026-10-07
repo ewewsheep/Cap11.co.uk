@@ -59,30 +59,11 @@ app.get("/TEST",async(req,res) => {
   res.send("Done")
 })
 
-app.get("/COUNT", async (req, res) => {
-    let a = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/click.json")
-
-    console.log("Firebase status:", a.status)
-
-    let b = await a.json()
-
-    console.log("Firebase value:", b)
-
-    b++
-
-    console.log("New value:", b)
-
-    let c = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/click.json", {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(b)
-    })
-
-    console.log("PUT status:", c.status)
-
-    res.send("")
+app.get("/COUNT", async(req,res) => {
+  let a = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/click")
+  b = a + 1
+  await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/click",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)})
+  res.send("")
 })
 
 app.get("/YES", async (req, res) => {
