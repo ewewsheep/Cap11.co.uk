@@ -44,6 +44,7 @@ async function headerscr(){
     var a = document.getElementById("InterDiv")
     var b = await fetch("/header.html")
     var c = await b.text()
+    fetch("/COUNT")
     a.innerHTML = c},50)
     
     setTimeout(() => {
