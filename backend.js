@@ -58,12 +58,11 @@ app.get("/TEST",async(req,res) => {
   await overwrite("pickles","ghotti","username")
   res.send("Done")
 })
-app.get("/COUNT", async() => {
+app.get("/COUNT", async(req,res) => {
   let a = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/click")
-  let b = a.json()
-  consoloe.log(b)
-  b += 1
+  b = a + 1
   await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/click",{method:"PUT",headers:{"Content-Type":"application/json"},body:b})
+  req.send("")
 })
 
 app.get("/YES", async (req, res) => {
