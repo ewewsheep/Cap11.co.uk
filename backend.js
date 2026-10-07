@@ -3,9 +3,6 @@ const f= require("fs").promises;
 const fs= require("fs");
 const app = express()
 const path = require("path");
-const cors = require("cors");
-
-app.use(cors()); // allow all origins (quick fix)
 
 
 const WEB_PATH = "https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json";
@@ -61,6 +58,11 @@ app.get("/TEST",async(req,res) => {
   await overwrite("pickles","ghotti","username")
   res.send("Done")
 })
+app.get("/COUNT", async() => {
+  let a = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/click")
+  let b = a + 1
+  await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/click",{method:"PUT",headers:{"Content-Type":"application/json"},body:b})
+}))
 
 app.get("/YES", async (req, res) => {
      var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v/vote.json")
