@@ -60,7 +60,9 @@ app.get("/TEST",async(req,res) => {
 })
 app.get("/COUNT", async() => {
   let a = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/click")
-  let b = a + 1
+  let b = a.json()
+  consoloe.log(b)
+  b += 1
   await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/click",{method:"PUT",headers:{"Content-Type":"application/json"},body:b})
 })
 
