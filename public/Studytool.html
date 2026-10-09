@@ -30,14 +30,15 @@
     </style>
 </head>
 
-<body class="basecontainer" style="background-image: url('/capjust.png')" >
+<body style="background-image: url('/capjust.png')" >
+    <div class="basecontainer"
     <div id="InterDiv" style="width:100%"></div>
     <div class="basecontainergap" style="background-color:white;width:15em;height:35em;border-style:solid;border-width:0.5em;border-color:navy;">
     <div class="basecontainergap" style="height:40vh">
         <span>codes:</span>
         <input type="text" id="arrayiput">
         <button onclick="Apply()">Apply</button>
-        <button onclick="Reset()">Get Code</button>
+        <button onclick="Get()">Get Code</button>
     </div>
     <div class="basecontainergap">
         <span>question</span>
@@ -60,12 +61,14 @@
         var current = null
         var array = []
         function Apply(){
-            var i = document.getElementById("arrayiput").value
+            var a = document.getElementById("arrayiput").value
+            var i = Buffer.from(a).toString("base64")
             var inp = JSON.parse(i)
             array = inp
         }
-        function Reset(){
-            document.getElementById("arrayiput").value = JSON.stringify(array)
+        function Get(){
+            let arraybase = Buffer.from(encoded, "base64").toString("utf8")
+            document.getElementById("arrayiput").value = JSON.stringify(arraybase)
         }
         function Add(){
             var acend = 0
