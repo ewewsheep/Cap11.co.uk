@@ -43,3 +43,7 @@
     border-width: 0.2em;
     background: linear-gradient(to right, yellow, green);
 }
+
+html {
+    filter: invert(1) hue-rotate(180deg)
+}
