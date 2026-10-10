@@ -63,12 +63,12 @@
         var array = []
         function Apply(){
             var i = document.getElementById("arrayiput").value
-            var inp = JSON.parse(JSON.parse(decodeURIComponent(i)))
+            var inp = JSON.parse(decodeURIComponent(i))
             array = inp
         }
         function Get(){
             
-            document.getElementById("arrayiput").value = JSON.stringify(encodeURIComponent(array))
+            document.getElementById("arrayiput").value = encodeURIComponent(JSON.stringify(array))
         }
         function Add(){
             var acend = 0
