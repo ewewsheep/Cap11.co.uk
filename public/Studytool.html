@@ -63,7 +63,7 @@
         var array = []
         function Apply(){
             var i = document.getElementById("arrayiput").value
-            var inp = JSON.parse(decodeURIComponent(i).json())
+            var inp = JSON.parse(JSON.parse(decodeURIComponent(i)))
             array = inp
         }
         function Get(){
