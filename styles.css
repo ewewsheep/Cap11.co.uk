@@ -1,10 +1,14 @@
 .text1 {
     font-family: 'Courier New', Courier, monospace;
+    color:black;
+    text-decoration:none;
 }
 
 .text2 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 650;
+    color:black;
+    text-decoration:none;
 }
 
 .box {
