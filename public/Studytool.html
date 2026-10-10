@@ -62,14 +62,13 @@
         var current = null
         var array = []
         function Apply(){
-            var a = document.getElementById("arrayiput").value
-            var i = Buffer.from(a).toString("base64")
-            var inp = JSON.parse(i)
+            var i = document.getElementById("arrayiput").value
+            var inp = JSON.parse(decodeURIComponent(i))
             array = inp
         }
         function Get(){
-            let arraybase = Buffer.from(encoded, "base64").toString("utf8")
-            document.getElementById("arrayiput").value = JSON.stringify(arraybase)
+            
+            document.getElementById("arrayiput").value = JSON.stringify(encodeURIComponent(array))
         }
         function Add(){
             var acend = 0
