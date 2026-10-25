@@ -48,3 +48,7 @@ html {
     filter: invert(1) hue-rotate(180deg);
     background: white
 }
+
+img {
+    filter: invert(1) hue-rotate(180deg)
+}
