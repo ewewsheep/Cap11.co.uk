@@ -58,8 +58,8 @@
             }
         }
 
-        function Next(){
-            let x = URLSearchParams(window.location.search).get("x")
+        function next(){
+            let x = new URLSearchParams(window.location.search).get("x")
             window.location = "CreateNC?x=" + x
         }
     </script>
