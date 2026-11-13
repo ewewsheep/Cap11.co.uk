@@ -15,7 +15,7 @@
     <div style="position:relative;top: 7em;display: flex;flex-direction: column;">
         <h1>YOU MUST LOGIN TO USE THIS<h1>
         <h2>Password</h2>
-        <button onclick="next()" ><h2>Create an account</h2></button>
+        <button onclick="next()" style="width:12em"><h2>Create an account</h2></button>
         <input type="password" id="Password" style="width: 15em;height: 3em;font-size: 60px;"/>
         <br>
         <span id="decline" style="color: red;opacity: 0;">INCORRECT CREDENTIALS</span>
@@ -29,6 +29,9 @@
 
 
     <script>
+        function next(){
+            window.location = "CreateNC.html"
+        }
 
         var found = false
 
