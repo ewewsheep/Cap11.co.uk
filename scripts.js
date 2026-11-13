@@ -94,7 +94,7 @@ async function headerscr(){
          }
             }
 
-async function create(){
+async function create(link){
         var count = 0
         var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json")
         var convert1 = await file.json()
@@ -108,7 +108,7 @@ async function create(){
         let alpha = await fetch("Data.Json")
         let beta = alpha.json
         document.cookie = JSON.stringify(beta[count - 1])
-        window.location = "Home.html"
+        window.location = link
       }
 
 async function cTrade(){
