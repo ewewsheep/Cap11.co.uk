@@ -106,6 +106,9 @@ async function create(){
         var password = document.getElementById("password").value
         await fetch("/NEW?array=" + JSON.stringify({ "banned": false, "clubs": [ "member" ], "id": `${count}`, "password": `${password}`, "pfp": "https://static.vecteezy.com/system/resources/previews/000/437/945/original/vector-settings-icon.jpg", "rank": "Bronze", "rankn": 1, "username": `${username}`,"banreason":"x" }))
         window.location = "Create.html"
+        let alpha = await fetch("Data.Json")
+        let beta = alpha.json
+        document.cookie = JSON.stringify(beta[count - 1])
       }
 
 async function cTrade(){
