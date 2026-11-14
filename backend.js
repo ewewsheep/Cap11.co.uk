@@ -136,6 +136,20 @@ app.get("/BAN", async (req,res) => {
   res.send("ban activated")
 })
 
+app.get("/UNBAN", async (req,res) => {
+  let a = req.query.id
+  let b = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json")
+  let c = await b.json()
+  c.forEach(x => {
+    if(x.id == Number(a)){
+      x.banned = false;
+      x.banreason = "x";
+    }
+  })
+  await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(c)})
+  res.send("ban activated")
+})
+
 app.get("/NAME", async (req, res) => {
   await overwrite(req.query.user,req.query.data.toString(),"username")
   res.send("Done")
