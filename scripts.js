@@ -170,5 +170,5 @@ async function ban(id, reason){
 
 async function unban(id){
     if(isadmin == true){
-    await fetch(`/UNBAN?id=${id}`)}else{console.log("not an admin 🤷")
+    await fetch(`/UNBAN?id=${id}`)}else{console.log("not an admin 🤷")}
 }
