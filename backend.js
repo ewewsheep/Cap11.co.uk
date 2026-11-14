@@ -174,7 +174,7 @@ app.listen(PORT, "0.0.0.0", () => {
   console.log("Server started on", PORT);
 });
 
-/*async function overwrite(a,b,c){
+async function overwrite(a,b,c){
   var file = await fetch(WEB_PATH)
   var tfile = await file.json()
   var final = await Object.values(tfile)
@@ -185,5 +185,5 @@ app.listen(PORT, "0.0.0.0", () => {
         z[c] = b;
     }});
   await fetch(WEB_PATH,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(final)})
-};*/
+};
 
