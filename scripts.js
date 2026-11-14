@@ -1,6 +1,6 @@
 let isadmin = false
 
-funtion admin(){
+function admin(){
     isadmin = true
 }
 
