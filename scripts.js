@@ -1,3 +1,5 @@
+let admin = false
+
 function GetProfile() {
     const raw = document.cookie
         if(!raw) {return null}
@@ -157,3 +159,6 @@ async function addclub(club){
     window.location.reload()
 }
 
+async function ban(id, reason){
+    await fetch(`/BAN?id=${id}&reason=${reason}`)
+}
