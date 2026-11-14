@@ -133,6 +133,7 @@ app.get("/BAN", async (req,res) => {
     }
   })
   await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/c.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(x)})
+  res.send("ban activated")
 })
 
 app.get("/NAME", (req, res) => {
