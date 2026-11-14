@@ -162,3 +162,7 @@ async function addclub(club){
 async function ban(id, reason){
     await fetch(`/BAN?id=${id}&reason=${reason}`)
 }
+
+async function unban(id){
+    await fetch(`/UNBAN?id=${id}`)
+}
