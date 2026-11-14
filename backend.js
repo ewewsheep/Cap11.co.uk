@@ -121,27 +121,34 @@ app.get("/ADDMESS", async (req, res) => {
       res.send("trade added")
     });
 
-let Queue = Promise.resolve()
+app.get("/BAN", async (req,res) => {
+  let a = req.query.id
+  let alpha = req.query.reason
+  let b = await fetch("https://cap11-data-default-rtbd.europe-west1.firebasedatabase.app/c.json")
+  let c = b.json()
+  c.forEach(x => {
+    if(x.id == Number(a)){
+      x.banned = true;
+      x.banreason = alpha;
+    }
+  })
+  await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/c.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(x)})
+})
 
 app.get("/NAME", (req, res) => {
-  Queue = Queue.then(async() => {
-    await overwrite(req.query.user,req.query.data.toString(),"username")
-    res.send("Done")
-  })
+  await overwrite(req.query.user,req.query.data.toString(),"username")
+  res.send("Done")
+  
 })
 
 app.get("/PASS", (req, res) => {
-  Queue = Queue.then(async() => {
-    await overwrite(req.query.user,req.query.data,"password")
-    res.send("Done")
-  })
+  await overwrite(req.query.user,req.query.data,"password")
+  res.send("Done")
 })
 
 app.get("/PFP", (req, res) => {
-  Queue = Queue.then( async () => {
-    await overwrite(req.query.user,req.query.data,"pfp")
-    res.send("Done")
-  })
+  await overwrite(req.query.user,req.query.data,"pfp")
+  res.send("Done")
 })
 
 app.get("/CLUBCHANGE", async (req, res) => {
@@ -166,7 +173,7 @@ app.listen(PORT, "0.0.0.0", () => {
   console.log("Server started on", PORT);
 });
 
-async function overwrite(a,b,c){
+/*async function overwrite(a,b,c){
   var file = await fetch(WEB_PATH)
   var tfile = await file.json()
   var final = await Object.values(tfile)
@@ -177,5 +184,5 @@ async function overwrite(a,b,c){
         z[c] = b;
     }});
   await fetch(WEB_PATH,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(final)})
-};
+};*/
 
