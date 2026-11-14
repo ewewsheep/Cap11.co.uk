@@ -124,7 +124,7 @@ app.get("/ADDMESS", async (req, res) => {
 app.get("/BAN", async (req,res) => {
   let a = req.query.id
   let alpha = req.query.reason
-  let b = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/c.json")
+  let b = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json")
   let c = await b.json()
   c.forEach(x => {
     if(x.id == Number(a)){
@@ -132,7 +132,7 @@ app.get("/BAN", async (req,res) => {
       x.banreason = alpha;
     }
   })
-  await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/c.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(c)})
+  await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/d.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(c)})
   res.send("ban activated")
 })
 
