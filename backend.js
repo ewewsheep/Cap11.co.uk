@@ -136,18 +136,18 @@ app.get("/BAN", async (req,res) => {
   res.send("ban activated")
 })
 
-app.get("/NAME", (req, res) => {
+app.get("/NAME", async (req, res) => {
   await overwrite(req.query.user,req.query.data.toString(),"username")
   res.send("Done")
   
 })
 
-app.get("/PASS", (req, res) => {
+app.get("/PASS", async (req, res) => {
   await overwrite(req.query.user,req.query.data,"password")
   res.send("Done")
 })
 
-app.get("/PFP", (req, res) => {
+app.get("/PFP", async (req, res) => {
   await overwrite(req.query.user,req.query.data,"pfp")
   res.send("Done")
 })
