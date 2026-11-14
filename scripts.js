@@ -1,4 +1,8 @@
-let admin = false
+let isadmin = false
+
+funtion admin(){
+    isadmin = true
+}
 
 function GetProfile() {
     const raw = document.cookie
@@ -160,9 +164,11 @@ async function addclub(club){
 }
 
 async function ban(id, reason){
-    await fetch(`/BAN?id=${id}&reason=${reason}`)
+    if(isadmin == true){
+    await fetch(`/BAN?id=${id}&reason=${reason}`)}
 }
 
 async function unban(id){
-    await fetch(`/UNBAN?id=${id}`)
+    if(isadmin == true){
+    await fetch(`/UNBAN?id=${id}`)}
 }
