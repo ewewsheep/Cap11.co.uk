@@ -165,10 +165,10 @@ async function addclub(club){
 
 async function ban(id, reason){
     if(isadmin == true){
-    await fetch(`/BAN?id=${id}&reason=${reason}`)}
+    await fetch(`/BAN?id=${id}&reason=${reason}`)}else{console.log("not an admin 🤷")}
 }
 
 async function unban(id){
     if(isadmin == true){
-    await fetch(`/UNBAN?id=${id}`)}
+    await fetch(`/UNBAN?id=${id}`)}else{console.log("not an admin 🤷")
 }
