@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="/favcon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js"></script>
+
+  <script>
+    headerscr()
+  </script>
+
+  <style>
+    .unblur {
+      filter: blur(0)
+    }
+    .blur {
+      filter: blur(10px)
+    }
+  </style>
+</head>
+
+<body style="display:flex;align-items:center;justify-content:center;flex-direction:column;">
+
+<div id="InterDiv" style="width:100%"></div>
+
+<span style="font-size:5em;font-family:'Courier New', Courier, monospace;text-decoration:wavy;">
+  agency Club
+</span>
+
+<div style="display:flex;flex-direction:row;height:10em;border-radius:2em;padding:1.5em;gap:2em;display:flex;flex-direction:row" class="box text1">
+  <div style="display:flex;flex-direction:column;">
+    <span>NAME: agency of cap11</span>
+    <p>Description: the second group orginised by garfield 11 (private)</p>
+    <button disabled class="joinbutton" onclick="addclub('Agency')"> JOIN </button>
+  </div>
+
+  <img src="https://tse3.mm.bing.net/th/id/OIP.uly-9VCLuwBau_D10xxewQHaHa"
+       style="width:250px;align-self:flex-start;">
+</div>
+
+<div id="hidebox" style="display:flex;flex-direction:row;height:10em;padding:1.5em;gap:2em;align-items:center;justify-content:center;" class="box text1 blur">
+  <span>i am going to code a user databae with all of the wierdo's soon</span>
+</div>
+
+<script>
+  setTimeout(() => {
+    IfClub("Agency", () => {
+      const box = document.getElementById("hidebox");
+      box.classList.remove("blur");
+      box.classList.add("unblur");
+    });
+  }, 1000);
+</script>
+
+</body>
+</html>
