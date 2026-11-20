@@ -46,16 +46,7 @@
 </div>
 
 <script>
-  setTimeout(() => {
-    IfClub("Wizard", () => {
-      const box = document.getElementById("hidebox");
-      box.classList.remove("blur");
-      box.classList.add("unblur");
-    });
-    var z = new  URLSearchParams('window.location.search');
-    var y = params.get("code")
-    if(y != null)
-  }, 1000);
+  ClubScript('Wizard')
 </script>
 
 </body>
