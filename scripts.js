@@ -172,3 +172,20 @@ async function unban(id){
     if(isadmin == true){
     await fetch(`/UNBAN?id=${id}`)}else{console.log("not an admin 🤷")}
 }
+
+function ClubScript(x){
+setTimeout(() => {
+    IfClub(x, () => {
+      const box = document.getElementById("hidebox");
+      box.classList.remove("blur");
+      box.classList.add("unblur");
+    });
+    var z = new  URLSearchParams('window.location.search');
+    var y = params.get("allowed")
+    if(y == true){
+        const box = document.getElementById("hidebox");
+        box.classList.remove("blur");
+        box.classList.add("unblur");
+    }
+  }, 1000);
+}
