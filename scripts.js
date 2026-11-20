@@ -182,7 +182,7 @@ setTimeout(() => {
     });
     var z = new  URLSearchParams('window.location.search');
     var y = params.get("allowed")
-    if(y == true){
+    if(y == "yes"){
         const box = document.getElementById("hidebox");
         box.classList.remove("blur");
         box.classList.add("unblur");
