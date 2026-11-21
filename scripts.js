@@ -174,12 +174,6 @@ async function unban(id){
 }
 
 function ClubScript(x){
-setTimeout(() => {
-    IfClub(x, () => {
-      const box = document.getElementById("hidebox");
-      box.classList.remove("blur");
-      box.classList.add("unblur");
-    });
     var z = new  URLSearchParams('window.location.search');
     var y = params.get("allowed")
     if(y == "yes"){
@@ -187,5 +181,11 @@ setTimeout(() => {
         box.classList.remove("blur");
         box.classList.add("unblur");
     }
+setTimeout(() => {
+    IfClub(x, () => {
+      const box = document.getElementById("hidebox");
+      box.classList.remove("blur");
+      box.classList.add("unblur");
+    });
   }, 1000);
 }
