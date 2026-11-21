@@ -1,0 +1,45 @@
+<DOCTYPE html>
+<head>
+  
+</head>
+<body>
+  <input id="username-user" type="text">
+  <input id="link-user" type="text">
+  <input id="extra-user" type="text">
+  <button onclick="adduser()"></button>
+  <input id="username-user" type="x">
+  <input id="link-user" type="y">
+  <button onclick="addextra()"></button>
+  <script>
+    async function adduser(){
+      let a = document.getElementById('username-user').value;
+      let b = document.getElementById('link-user').value;
+      let c = document.getElementById('extra-user').value;
+      let d = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/database.json");
+      let e = await d.json();
+      let f = Object.values(e);
+      f.push({"user":a,"link":b,"extras":c);
+      await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/database.json", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(f)
+    }
+
+    async function addextra(){
+      let a = document.getElementById('x').value;
+      let b = document.getElementById('y').value;
+      let d = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/database.json");
+      let e = await d.json();
+      let f = Object.values(e);
+      f.push({"name":a,"data":b);
+      await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/database.json", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(f)
+    }
+  </script>
+</body>
