@@ -174,8 +174,8 @@ async function unban(id){
 }
 
 function ClubScript(x){
-    var z = new  URLSearchParams('window.location.search');
-    var y = params.get("allowed")
+    var z = new  URLSearchParams(window.location.search);
+    var y = z.get("allowed")
     if(y == "yes"){
         const box = document.getElementById("hidebox");
         box.classList.remove("blur");
