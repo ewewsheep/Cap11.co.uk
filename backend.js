@@ -65,7 +65,14 @@ app.get("/COUNT", async(req,res) => {
   let b = a + 1
   await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/click.json",{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)})
   res.send("")
-})
+});
+
+app.get("/Database", async(req,res) => {
+  let a = await fetch('https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/database')
+  let b = a.json()
+  let c = Object.values(b)
+  res.json(c)
+});
 
 app.get("/YES", async (req, res) => {
      var file = await fetch("https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/v/vote.json")
