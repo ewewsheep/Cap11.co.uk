@@ -68,7 +68,7 @@ app.get("/COUNT", async(req,res) => {
 });
 
 app.get("/Database", async(req,res) => {
-  let a = await fetch('https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/database')
+  let a = await fetch('https://cap11-data-default-rtdb.europe-west1.firebasedatabase.app/database.json')
   let b = await a.json()
   let c = Object.values(b)
   res.json(c)
